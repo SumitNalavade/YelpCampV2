@@ -1,11 +1,22 @@
+import { useEffect } from "react";
 import { NextPage } from "next";
 import Link from "next/link";
 
-import Layout from "../Components/Layout";
+import { request, gql } from "graphql-request";
 
 import styles from "../styles/home.module.css";
 
 const Home: NextPage = () => {
+  useEffect(() => {
+    const query = gql`
+      {
+        hello
+      }
+    `
+
+    request('/api/graphql', query).then((data) => console.log(data))
+  }, [])
+
   return (
     <section className="relative h-screen flex flex-col items-center justify-center text-center text-white py-0 px-3 z-0 bg-neutral">
       <div className="video-docker absolute top-0 left-0 w-full h-full overflow-hidden">
