@@ -1,6 +1,8 @@
 import React from "react";
 import Head from 'next/head'
 
+import Navbar from "./Navbar";
+
 interface Props {
     children: React.ReactNode
 }
@@ -15,8 +17,11 @@ const Layout: React.FC<Props> = ({ children }) => {
             <link rel="icon" href="/favicon.ico" />
             </Head>
 
-            <main className="container mx-auto h-screen">
-                { children }
+            <main className="h-screen flex flex-col overflow-hidden">
+                <Navbar />
+                <div className="flex-1">
+                    { children }
+                </div>
             </main>
       </>
     )
