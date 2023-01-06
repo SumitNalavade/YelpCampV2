@@ -56,10 +56,17 @@ const CampgroundInfoCard: React.FC<Props> = ({ campground }) => {
         </div>
       </div>
 
-      <div className="card-body">
-        <h2 className="card-title">{campground.name}</h2>
-        <p className="max-h-8">{campground.address}</p>
-        <div className="badge badge-primary badge-outline">${campground.price}</div>
+      <div className="card-body grid grid-cols-2">
+        <div>
+          <h2 className="card-title">{campground.name}</h2>
+          <p className="max-h-8">{campground.address}</p>
+          <div className="badge badge-primary badge-outline">${campground.price}</div>
+        </div>
+
+        <div>
+          { campground.description }
+        </div>
+       
       </div>
     </div>
   );

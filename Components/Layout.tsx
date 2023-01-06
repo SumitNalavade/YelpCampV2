@@ -17,7 +17,7 @@ const Layout: React.FC<Props> = ({ children }) => {
             <link rel="icon" href="/favicon.ico" />
             </Head>
 
-            <main className="h-screen flex flex-col overflow-hidden">
+            <main className="h-screen flex flex-col overflow-hidden bg-base-100">
                 <Navbar />
                 <div className="flex-1">
                     { children }
