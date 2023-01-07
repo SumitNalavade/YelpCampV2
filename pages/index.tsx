@@ -8,14 +8,16 @@ import styles from "../styles/home.module.css";
 
 const Home: NextPage = () => {
   useEffect(() => {
-    const query = gql`
-      {
-        hello
-      }
-    `
+    // const query = gql`
+    //   mutation AddCampground {
+    //     addCampground(name: "Test Name", description: "Test Description", imageURL: "Test Image URL", address: "Test Address", price: 10) {
+    //       name
+    //     }
+    //   }
+    // `;
 
-    request('/api/graphql', query).then((data) => console.log(data))
-  }, [])
+    // request("/api/graphql", query).then((data) => console.log(data));
+  }, []);
 
   return (
     <section className="relative h-screen flex flex-col items-center justify-center text-center text-white py-0 px-3 z-0 bg-neutral">
