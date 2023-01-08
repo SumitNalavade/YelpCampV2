@@ -1,5 +1,5 @@
 -- CreateTable
-CREATE TABLE "Campground" (
+CREATE TABLE "campgrounds" (
     "id" TEXT NOT NULL,
     "name" TEXT NOT NULL,
     "description" TEXT NOT NULL,
@@ -7,5 +7,5 @@ CREATE TABLE "Campground" (
     "address" TEXT NOT NULL,
     "price" DOUBLE PRECISION NOT NULL,
 
-    CONSTRAINT "Campground_pkey" PRIMARY KEY ("id")
+    CONSTRAINT "campgrounds_pkey" PRIMARY KEY ("id")
 );

@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { NextPage } from "next";
+import { NextPage, GetServerSideProps } from "next";
+import { request, gql } from "graphql-request";
 
 import Layout from "../Components/Layout";
 import CampgroundCard from "../Components/CampgroundCard";
@@ -8,7 +9,11 @@ import CampgroundInfoCard from "../Components/CampgroundInfoCard";
 import { campgrounds } from "../utils/placeholderData";
 import { ICampground } from "../utils/interfaces";
 
-const Campgrounds: NextPage = () => {
+interface Props {
+    campgrounds: ICampground[]
+}
+
+const Campgrounds: NextPage<Props> = ({ campgrounds }) => {
     const [selectedCampground, setSelectedCampground] = useState<ICampground>(campgrounds[0])
 
     return (
@@ -34,6 +39,25 @@ const Campgrounds: NextPage = () => {
             </div>
         </Layout>
     )
+}
+
+export const getServerSideProps: GetServerSideProps = async(context) => {
+    const query = gql`
+      {
+        campgrounds {
+          id
+          name
+          description
+          imageURL
+          address
+          price
+        }
+      }
+    `
+
+    const { campgrounds } = await request('http://localhost:3000/api/graphql', query)
+
+    return { props: { campgrounds } }
 }
 
 export default Campgrounds

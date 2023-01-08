@@ -1,23 +1,25 @@
 datasource postgres {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+    provider = "postgresql"
+    url      = env("DATABASE_URL")
 }
 
 generator client {
-  provider = "prisma-client-js"
+    provider = "prisma-client-js"
 }
 
 generator typegraphql {
-  provider = "typegraphql-prisma"
-  output   = "../prisma/generated/type-graphql"
-  emitTranspiledCode = true
+    provider           = "typegraphql-prisma"
+    output             = "../prisma/generated/type-graphql"
+    emitTranspiledCode = true
 }
 
 model Campground {
-    id String @id @default(uuid())
-    name String
+    id          String @id @default(uuid())
+    name        String
     description String
-    imageURL String
-    address String
-    price Float
+    imageURL    String
+    address     String
+    price       Float
+
+    @@map("campgrounds")
 }

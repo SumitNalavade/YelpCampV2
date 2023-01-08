@@ -10,7 +10,7 @@ const CampgroundCard: React.FC<Props> = ({ campground }) => {
   return (
     <div className="card card-compact lg:card-side bg-base-100 shadow-md m-8 grid grid-cols-2">
       <figure className="flex flex-column">
-        <img src={campground.imageUrl} alt="Album" className="w-full max-h-40 object-cover" />
+        <img src={campground.imageURL} alt="Album" className="w-full max-h-40 object-cover" />
       </figure>
       <div className="card-body overflow-y-hidden">
         <h2 className="card-title">{campground.name}</h2>

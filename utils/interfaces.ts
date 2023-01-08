@@ -1,7 +1,7 @@
 export interface ICampground {
     name: string
     description: string
-    imageUrl: string
+    imageURL: string
     address: string
     price: number
 }
