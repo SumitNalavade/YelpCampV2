@@ -18,23 +18,11 @@ const Campgrounds: NextPage<Props> = ({ campgrounds }) => {
 
     return (
         <Layout>
-            <div className="h-full">
-                <div className="grid grid-cols-2 h-full">
-                    <div className="max-h-screen overflow-y-auto">
-                        { campgrounds.map((campground) => (
-                            <div className="cursor-pointer" key={campgrounds.indexOf(campground)} onClick={() => setSelectedCampground(campground)}>
-                                <CampgroundCard campground={campground} />
-                            </div>
-                        ))}
-                    </div>
-
-                    <div className="grid grid-rows-2">
-                        <div className="flex justify-center items-center">
-                            Mapbox
-                        </div>
-
-                        <CampgroundInfoCard campground={selectedCampground} />
-                    </div>
+            <div className="container mx-auto">
+                <div className="flex flex-wrap justify-around">
+                    { campgrounds.map((campground) => (
+                        <CampgroundCard campground={campground} key={campground.id} />
+                    )) }
                 </div>
             </div>
         </Layout>

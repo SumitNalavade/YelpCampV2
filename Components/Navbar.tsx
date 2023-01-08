@@ -2,7 +2,8 @@ import React from "react";
 
 const Navbar: React.FC = () => {
   return (
-    <div className="navbar bg-primary text-teritary sticky top-0">
+    <>
+    <div className="container mx-auto navbar text-secondary">
       <div className="flex-1">
         <a className="btn btn-ghost normal-case text-xl">YelpCamp</a>
       </div>
@@ -17,6 +18,8 @@ const Navbar: React.FC = () => {
         </ul>
       </div>
     </div>
+    <hr />
+    </>
   );
 };
 

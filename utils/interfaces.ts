@@ -1,4 +1,5 @@
 export interface ICampground {
+    id: string
     name: string
     description: string
     imageURL: string
