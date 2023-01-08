@@ -1,11 +1,12 @@
 import React from "react";
+import Link from "next/link";
 
 const Navbar: React.FC = () => {
   return (
     <>
     <div className="container mx-auto navbar text-secondary">
       <div className="flex-1">
-        <a className="btn btn-ghost normal-case text-xl">YelpCamp</a>
+        <Link className="btn btn-ghost normal-case text-xl" href="/">YelpCamp</Link>
       </div>
       <div className="flex-none">
         <ul className="menu menu-horizontal px-1">

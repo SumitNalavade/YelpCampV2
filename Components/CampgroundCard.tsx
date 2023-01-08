@@ -13,8 +13,8 @@ const CampgroundCard: React.FC<Props> = ({ campground }) => {
         <img src="https://placeimg.com/400/225/arch" alt="Shoes" className="rounded-xl" />
       </figure>
       <div className="my-4">
-        <h2 className="text-md font-medium text-neutral">{campground.name}</h2>
-        <p className="text-sm">{campground.address}</p>
+        <h2 className="text-md font-medium">{campground.name}</h2>
+        <p className="text-sm text-base-200">{campground.address}</p>
         <div className="badge badge-primary badge-outline mt-6">${campground.price}</div>
       </div>
     </div>

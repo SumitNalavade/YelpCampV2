@@ -19,7 +19,7 @@ const Layout: React.FC<Props> = ({ children }) => {
 
             <main className="flex flex-col bg-base-100">
                 <Navbar />
-                <div className="flex-1 mt-12">
+                <div className="flex-1 mt-6 text-neutral">
                     { children }
                 </div>
             </main>
