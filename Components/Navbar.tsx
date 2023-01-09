@@ -1,7 +1,10 @@
 import React from "react";
 import Link from "next/link";
+import { useSession, signIn, signOut } from "next-auth/react";
 
 const Navbar: React.FC = () => {
+  const { data: session } = useSession();
+
   return (
     <>
     <div className="container mx-auto navbar text-secondary">
@@ -11,10 +14,7 @@ const Navbar: React.FC = () => {
       <div className="flex-none">
         <ul className="menu menu-horizontal px-1">
           <li>
-            <a>Sign In</a>
-          </li>
-          <li>
-            <a>Sign Up</a>
+            <a onClick={() => signIn()}>Sign In</a>
           </li>
         </ul>
       </div>
