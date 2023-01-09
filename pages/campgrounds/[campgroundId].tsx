@@ -5,7 +5,7 @@ import { ICampground } from "../../utils/interfaces";
 
 import Layout from "../../Components/Layout";
 import CampgroundImage from "../../Components/CampgroundImage";
-import AverageCampgroundRating from "../../Components/averageCampgroundRating";
+import AverageCampgroundRating from "../../Components/AverageCampgroundRating";
 
 interface Props {
     campground: ICampground
