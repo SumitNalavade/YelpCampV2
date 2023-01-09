@@ -1,9 +1,8 @@
-import { PrismaClient } from "@prisma/client";
 import { Resolver, Query, Arg } from "type-graphql";
+import prisma from "../utils/prismaConfig";
 
 import { Campground } from "../../../prisma/generated/type-graphql";
 
-const prisma = new PrismaClient()
 
 @Resolver(Campground)
 class CampgroundResolver {

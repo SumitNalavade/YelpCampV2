@@ -1,9 +1,14 @@
 import * as crudResolvers from "./resolvers/crud/resolvers-crud.index";
 import * as argsTypes from "./resolvers/crud/args.index";
+import * as relationResolvers from "./resolvers/relations/resolvers.index";
 import * as models from "./models";
 import * as outputTypes from "./resolvers/outputs";
 import * as inputTypes from "./resolvers/inputs";
 declare const crudResolversMap: {
+    Account: typeof crudResolvers.AccountCrudResolver;
+    Session: typeof crudResolvers.SessionCrudResolver;
+    User: typeof crudResolvers.UserCrudResolver;
+    VerificationToken: typeof crudResolvers.VerificationTokenCrudResolver;
     Campground: typeof crudResolvers.CampgroundCrudResolver;
 };
 type ResolverModelNames = keyof typeof crudResolversMap;
@@ -24,6 +29,18 @@ export type ArgsTypesEnhanceMap = {
     [TArgsType in ArgsTypesNames]?: ArgConfig<TArgsType>;
 };
 export declare function applyArgsTypesEnhanceMap(argsTypesEnhanceMap: ArgsTypesEnhanceMap): void;
+declare const relationResolversMap: {
+    Account: typeof relationResolvers.AccountRelationsResolver;
+    Session: typeof relationResolvers.SessionRelationsResolver;
+    User: typeof relationResolvers.UserRelationsResolver;
+};
+type RelationResolverModelNames = keyof typeof relationResolversMap;
+type RelationResolverActionNames<TModel extends RelationResolverModelNames> = keyof typeof relationResolversMap[TModel]["prototype"];
+export type RelationResolverActionsConfig<TModel extends RelationResolverModelNames> = Partial<Record<RelationResolverActionNames<TModel> | "_all", MethodDecorator[]>>;
+export type RelationResolversEnhanceMap = {
+    [TModel in RelationResolverModelNames]?: RelationResolverActionsConfig<TModel>;
+};
+export declare function applyRelationResolversEnhanceMap(relationResolversEnhanceMap: RelationResolversEnhanceMap): void;
 type FieldsConfig<TTypeKeys extends string = string> = Partial<Record<TTypeKeys | "_all", PropertyDecorator[]>>;
 type ModelNames = keyof typeof models;
 type ModelFieldNames<TModel extends ModelNames> = Exclude<keyof typeof models[TModel]["prototype"], number | symbol>;
