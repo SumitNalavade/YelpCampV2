@@ -14,12 +14,14 @@ generator typegraphql {
 }
 
 model Campground {
-    id          String @id @default(uuid())
-    name        String
-    description String
-    imageURL    String
-    address     String
-    price       Float
+    id                 String   @id @default(uuid())
+    name               String
+    description        String
+    averageRating      Float    @default(0)
+    primaryImageUrl    String
+    secondaryImageUrls String[]
+    address            String
+    price              Float
 
     @@map("campgrounds")
 }

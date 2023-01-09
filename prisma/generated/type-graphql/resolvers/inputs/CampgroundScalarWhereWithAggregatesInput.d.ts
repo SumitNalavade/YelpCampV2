@@ -1,4 +1,5 @@
 import { FloatWithAggregatesFilter } from "../inputs/FloatWithAggregatesFilter";
+import { StringNullableListFilter } from "../inputs/StringNullableListFilter";
 import { StringWithAggregatesFilter } from "../inputs/StringWithAggregatesFilter";
 export declare class CampgroundScalarWhereWithAggregatesInput {
     AND?: CampgroundScalarWhereWithAggregatesInput[] | undefined;
@@ -7,7 +8,9 @@ export declare class CampgroundScalarWhereWithAggregatesInput {
     id?: StringWithAggregatesFilter | undefined;
     name?: StringWithAggregatesFilter | undefined;
     description?: StringWithAggregatesFilter | undefined;
-    imageURL?: StringWithAggregatesFilter | undefined;
+    averageRating?: FloatWithAggregatesFilter | undefined;
+    primaryImageUrl?: StringWithAggregatesFilter | undefined;
+    secondaryImageUrls?: StringNullableListFilter | undefined;
     address?: StringWithAggregatesFilter | undefined;
     price?: FloatWithAggregatesFilter | undefined;
 }

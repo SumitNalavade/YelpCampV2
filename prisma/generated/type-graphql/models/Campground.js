@@ -24,11 +24,23 @@ tslib_1.__decorate([
     tslib_1.__metadata("design:type", String)
 ], Campground.prototype, "description", void 0);
 tslib_1.__decorate([
+    TypeGraphQL.Field(_type => TypeGraphQL.Float, {
+        nullable: false
+    }),
+    tslib_1.__metadata("design:type", Number)
+], Campground.prototype, "averageRating", void 0);
+tslib_1.__decorate([
     TypeGraphQL.Field(_type => String, {
         nullable: false
     }),
     tslib_1.__metadata("design:type", String)
-], Campground.prototype, "imageURL", void 0);
+], Campground.prototype, "primaryImageUrl", void 0);
+tslib_1.__decorate([
+    TypeGraphQL.Field(_type => [String], {
+        nullable: false
+    }),
+    tslib_1.__metadata("design:type", Array)
+], Campground.prototype, "secondaryImageUrls", void 0);
 tslib_1.__decorate([
     TypeGraphQL.Field(_type => String, {
         nullable: false

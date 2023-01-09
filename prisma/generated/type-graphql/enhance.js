@@ -103,7 +103,7 @@ function applyTypeClassEnhanceConfig(enhanceConfig, typeClass, typePrototype, ty
     }
 }
 const modelsInfo = {
-    Campground: ["id", "name", "description", "imageURL", "address", "price"]
+    Campground: ["id", "name", "description", "averageRating", "primaryImageUrl", "secondaryImageUrls", "address", "price"]
 };
 function applyModelsEnhanceMap(modelsEnhanceMap) {
     for (const modelsEnhanceMapKey of Object.keys(modelsEnhanceMap)) {
@@ -117,13 +117,13 @@ function applyModelsEnhanceMap(modelsEnhanceMap) {
 exports.applyModelsEnhanceMap = applyModelsEnhanceMap;
 const outputsInfo = {
     AggregateCampground: ["_count", "_avg", "_sum", "_min", "_max"],
-    CampgroundGroupBy: ["id", "name", "description", "imageURL", "address", "price", "_count", "_avg", "_sum", "_min", "_max"],
+    CampgroundGroupBy: ["id", "name", "description", "averageRating", "primaryImageUrl", "secondaryImageUrls", "address", "price", "_count", "_avg", "_sum", "_min", "_max"],
     AffectedRowsOutput: ["count"],
-    CampgroundCountAggregate: ["id", "name", "description", "imageURL", "address", "price", "_all"],
-    CampgroundAvgAggregate: ["price"],
-    CampgroundSumAggregate: ["price"],
-    CampgroundMinAggregate: ["id", "name", "description", "imageURL", "address", "price"],
-    CampgroundMaxAggregate: ["id", "name", "description", "imageURL", "address", "price"]
+    CampgroundCountAggregate: ["id", "name", "description", "averageRating", "primaryImageUrl", "secondaryImageUrls", "address", "price", "_all"],
+    CampgroundAvgAggregate: ["averageRating", "price"],
+    CampgroundSumAggregate: ["averageRating", "price"],
+    CampgroundMinAggregate: ["id", "name", "description", "averageRating", "primaryImageUrl", "address", "price"],
+    CampgroundMaxAggregate: ["id", "name", "description", "averageRating", "primaryImageUrl", "address", "price"]
 };
 function applyOutputTypesEnhanceMap(outputTypesEnhanceMap) {
     for (const outputTypeEnhanceMapKey of Object.keys(outputTypesEnhanceMap)) {
@@ -136,26 +136,29 @@ function applyOutputTypesEnhanceMap(outputTypesEnhanceMap) {
 }
 exports.applyOutputTypesEnhanceMap = applyOutputTypesEnhanceMap;
 const inputsInfo = {
-    CampgroundWhereInput: ["AND", "OR", "NOT", "id", "name", "description", "imageURL", "address", "price"],
-    CampgroundOrderByWithRelationInput: ["id", "name", "description", "imageURL", "address", "price"],
+    CampgroundWhereInput: ["AND", "OR", "NOT", "id", "name", "description", "averageRating", "primaryImageUrl", "secondaryImageUrls", "address", "price"],
+    CampgroundOrderByWithRelationInput: ["id", "name", "description", "averageRating", "primaryImageUrl", "secondaryImageUrls", "address", "price"],
     CampgroundWhereUniqueInput: ["id"],
-    CampgroundOrderByWithAggregationInput: ["id", "name", "description", "imageURL", "address", "price", "_count", "_avg", "_max", "_min", "_sum"],
-    CampgroundScalarWhereWithAggregatesInput: ["AND", "OR", "NOT", "id", "name", "description", "imageURL", "address", "price"],
-    CampgroundCreateInput: ["id", "name", "description", "imageURL", "address", "price"],
-    CampgroundUpdateInput: ["id", "name", "description", "imageURL", "address", "price"],
-    CampgroundCreateManyInput: ["id", "name", "description", "imageURL", "address", "price"],
-    CampgroundUpdateManyMutationInput: ["id", "name", "description", "imageURL", "address", "price"],
+    CampgroundOrderByWithAggregationInput: ["id", "name", "description", "averageRating", "primaryImageUrl", "secondaryImageUrls", "address", "price", "_count", "_avg", "_max", "_min", "_sum"],
+    CampgroundScalarWhereWithAggregatesInput: ["AND", "OR", "NOT", "id", "name", "description", "averageRating", "primaryImageUrl", "secondaryImageUrls", "address", "price"],
+    CampgroundCreateInput: ["id", "name", "description", "averageRating", "primaryImageUrl", "secondaryImageUrls", "address", "price"],
+    CampgroundUpdateInput: ["id", "name", "description", "averageRating", "primaryImageUrl", "secondaryImageUrls", "address", "price"],
+    CampgroundCreateManyInput: ["id", "name", "description", "averageRating", "primaryImageUrl", "secondaryImageUrls", "address", "price"],
+    CampgroundUpdateManyMutationInput: ["id", "name", "description", "averageRating", "primaryImageUrl", "secondaryImageUrls", "address", "price"],
     StringFilter: ["equals", "in", "notIn", "lt", "lte", "gt", "gte", "contains", "startsWith", "endsWith", "mode", "not"],
     FloatFilter: ["equals", "in", "notIn", "lt", "lte", "gt", "gte", "not"],
-    CampgroundCountOrderByAggregateInput: ["id", "name", "description", "imageURL", "address", "price"],
-    CampgroundAvgOrderByAggregateInput: ["price"],
-    CampgroundMaxOrderByAggregateInput: ["id", "name", "description", "imageURL", "address", "price"],
-    CampgroundMinOrderByAggregateInput: ["id", "name", "description", "imageURL", "address", "price"],
-    CampgroundSumOrderByAggregateInput: ["price"],
+    StringNullableListFilter: ["equals", "has", "hasEvery", "hasSome", "isEmpty"],
+    CampgroundCountOrderByAggregateInput: ["id", "name", "description", "averageRating", "primaryImageUrl", "secondaryImageUrls", "address", "price"],
+    CampgroundAvgOrderByAggregateInput: ["averageRating", "price"],
+    CampgroundMaxOrderByAggregateInput: ["id", "name", "description", "averageRating", "primaryImageUrl", "address", "price"],
+    CampgroundMinOrderByAggregateInput: ["id", "name", "description", "averageRating", "primaryImageUrl", "address", "price"],
+    CampgroundSumOrderByAggregateInput: ["averageRating", "price"],
     StringWithAggregatesFilter: ["equals", "in", "notIn", "lt", "lte", "gt", "gte", "contains", "startsWith", "endsWith", "mode", "not", "_count", "_min", "_max"],
     FloatWithAggregatesFilter: ["equals", "in", "notIn", "lt", "lte", "gt", "gte", "not", "_count", "_avg", "_sum", "_min", "_max"],
+    CampgroundCreatesecondaryImageUrlsInput: ["set"],
     StringFieldUpdateOperationsInput: ["set"],
     FloatFieldUpdateOperationsInput: ["set", "increment", "decrement", "multiply", "divide"],
+    CampgroundUpdatesecondaryImageUrlsInput: ["set", "push"],
     NestedStringFilter: ["equals", "in", "notIn", "lt", "lte", "gt", "gte", "contains", "startsWith", "endsWith", "not"],
     NestedFloatFilter: ["equals", "in", "notIn", "lt", "lte", "gt", "gte", "not"],
     NestedStringWithAggregatesFilter: ["equals", "in", "notIn", "lt", "lte", "gt", "gte", "contains", "startsWith", "endsWith", "not", "_count", "_min", "_max"],

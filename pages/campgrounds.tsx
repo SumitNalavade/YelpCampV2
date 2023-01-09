@@ -22,7 +22,7 @@ const Campgrounds: NextPage<Props> = ({ campgrounds }) => {
             <div className="container mx-auto">
                 <div className="flex flex-wrap justify-around">
                     { campgrounds.map((campground) => (
-                        <Link key={campground.id} href={`/campgrounds/${campground.id}`}>
+                        <Link key={campground.id} href={`/campgrounds/${campground.id}`} >
                             <CampgroundCard campground={campground} />
                         </Link>
                     )) }
@@ -38,8 +38,8 @@ export const getServerSideProps: GetServerSideProps = async(context) => {
         campgrounds {
           id
           name
-          description
-          imageURL
+          primaryImageUrl
+          secondaryImageUrls
           address
           price
         }

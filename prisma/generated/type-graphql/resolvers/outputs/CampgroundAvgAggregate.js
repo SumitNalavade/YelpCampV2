@@ -10,6 +10,12 @@ tslib_1.__decorate([
         nullable: true
     }),
     tslib_1.__metadata("design:type", Number)
+], CampgroundAvgAggregate.prototype, "averageRating", void 0);
+tslib_1.__decorate([
+    TypeGraphQL.Field(_type => TypeGraphQL.Float, {
+        nullable: true
+    }),
+    tslib_1.__metadata("design:type", Number)
 ], CampgroundAvgAggregate.prototype, "price", void 0);
 CampgroundAvgAggregate = tslib_1.__decorate([
     TypeGraphQL.ObjectType("CampgroundAvgAggregate", {

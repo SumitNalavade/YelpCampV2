@@ -3,6 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.CampgroundCreateManyInput = void 0;
 const tslib_1 = require("tslib");
 const TypeGraphQL = tslib_1.__importStar(require("type-graphql"));
+const CampgroundCreatesecondaryImageUrlsInput_1 = require("../inputs/CampgroundCreatesecondaryImageUrlsInput");
 let CampgroundCreateManyInput = class CampgroundCreateManyInput {
 };
 tslib_1.__decorate([
@@ -24,11 +25,23 @@ tslib_1.__decorate([
     tslib_1.__metadata("design:type", String)
 ], CampgroundCreateManyInput.prototype, "description", void 0);
 tslib_1.__decorate([
+    TypeGraphQL.Field(_type => TypeGraphQL.Float, {
+        nullable: true
+    }),
+    tslib_1.__metadata("design:type", Number)
+], CampgroundCreateManyInput.prototype, "averageRating", void 0);
+tslib_1.__decorate([
     TypeGraphQL.Field(_type => String, {
         nullable: false
     }),
     tslib_1.__metadata("design:type", String)
-], CampgroundCreateManyInput.prototype, "imageURL", void 0);
+], CampgroundCreateManyInput.prototype, "primaryImageUrl", void 0);
+tslib_1.__decorate([
+    TypeGraphQL.Field(_type => CampgroundCreatesecondaryImageUrlsInput_1.CampgroundCreatesecondaryImageUrlsInput, {
+        nullable: true
+    }),
+    tslib_1.__metadata("design:type", CampgroundCreatesecondaryImageUrlsInput_1.CampgroundCreatesecondaryImageUrlsInput)
+], CampgroundCreateManyInput.prototype, "secondaryImageUrls", void 0);
 tslib_1.__decorate([
     TypeGraphQL.Field(_type => String, {
         nullable: false

@@ -6,7 +6,7 @@ const Navbar: React.FC = () => {
     <>
     <div className="container mx-auto navbar text-secondary">
       <div className="flex-1">
-        <Link className="btn btn-ghost normal-case text-xl" href="/">YelpCamp</Link>
+        <Link className="btn btn-ghost normal-case text-xl" href="/campgrounds">YelpCamp</Link>
       </div>
       <div className="flex-none">
         <ul className="menu menu-horizontal px-1">
