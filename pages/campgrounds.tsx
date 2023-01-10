@@ -1,13 +1,10 @@
-import { useState } from "react";
 import { NextPage, GetServerSideProps } from "next";
 import Link from "next/link";
 import { request, gql } from "graphql-request";
 
 import Layout from "../Components/Layout";
 import CampgroundCard from "../Components/CampgroundCard";
-import CampgroundInfoCard from "../Components/CampgroundInfoCard";
 
-import { campgrounds } from "../utils/placeholderData";
 import { ICampground } from "../utils/interfaces";
 
 interface Props {
@@ -15,8 +12,6 @@ interface Props {
 }
 
 const Campgrounds: NextPage<Props> = ({ campgrounds }) => {
-    const [selectedCampground, setSelectedCampground] = useState<ICampground>(campgrounds[0])
-
     return (
         <Layout>
             <div className="container mx-auto">

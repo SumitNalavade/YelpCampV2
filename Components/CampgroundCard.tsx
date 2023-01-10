@@ -8,7 +8,7 @@ interface Props {
 
 const CampgroundCard: React.FC<Props> = ({ campground }) => {
   return (
-    <div className="card card-compact w-80 h-80 bg-base-100 m-4">
+    <div className="card card-compact w-80 h-80 m-4">
       <figure>
         <img src={campground.primaryImageUrl} alt="Shoes" className="rounded-xl" />
       </figure>
