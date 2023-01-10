@@ -39,7 +39,6 @@ export const getServerSideProps: GetServerSideProps = async(context) => {
           id
           name
           primaryImageUrl
-          secondaryImageUrls
           address
           price
         }

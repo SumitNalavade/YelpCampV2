@@ -17,7 +17,7 @@ const CampgroundPage: NextPage<Props> = ({ campground }) => {
 
   return (
     <Layout>
-      <div className="container mx-auto h-full">
+      <div className="container mx-auto h-screen">
         <div className="bg-base-100">
             <div className="mx-2 mb-6">
                 <p className="text-3xl font-medium">{campground.name}</p>
@@ -25,13 +25,15 @@ const CampgroundPage: NextPage<Props> = ({ campground }) => {
             </div>
 
             <div className="grid grid-cols-2">
-                <div className="mx-2">
+                <div className="mx-2 flex justify-center max-h-[30rem]">
                     <CampgroundImage imageUrl={campground.primaryImageUrl} />
                 </div>
 
-                <div className="grid grid-cols-2 gap-2 place-content-center">
-                    { campground.secondaryImageUrls.map((imageUrl) => (
-                        <CampgroundImage key={campground.secondaryImageUrls.indexOf(imageUrl)} imageUrl={imageUrl} />
+                <div className="grid grid-cols-2 gap-2"> 
+                    { campground.secondaryImageUrls.map((imageUrl, index) => (
+                        <div className="max-h-60 w-full flex" key={index}>
+                            <CampgroundImage imageUrl={imageUrl} />
+                        </div>
                     )) }
                 </div>
             </div>
