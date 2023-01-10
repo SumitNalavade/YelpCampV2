@@ -1,12 +1,25 @@
+import React, { useState } from "react";
 import { NextPage } from "next";
+
+import { FileUploader,  } from "react-drag-drop-files";
 
 import Layout from "../../Components/Layout";
 
+const fileTypes = ["JPG", "PNG", "GIF"];
+
 const NewCampground: NextPage = () => {
+    const [file, setFile] = useState(null);
+    const handleChange = (file: any) => {
+        setFile(file);
+        console.log(file)
+    };
+
   return (
     <Layout>
       <div className="grid grid-cols-2 h-full">
-        <div></div>
+        <div>
+            <FileUploader handleChange={handleChange} name="file" types={fileTypes} label={" "} />
+        </div>
 
         <div>
           <div className="my-4">
