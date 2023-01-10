@@ -6,6 +6,7 @@ const TypeGraphQL = tslib_1.__importStar(require("type-graphql"));
 const CampgroundUpdatesecondaryImageUrlsInput_1 = require("../inputs/CampgroundUpdatesecondaryImageUrlsInput");
 const FloatFieldUpdateOperationsInput_1 = require("../inputs/FloatFieldUpdateOperationsInput");
 const StringFieldUpdateOperationsInput_1 = require("../inputs/StringFieldUpdateOperationsInput");
+const UserUpdateOneRequiredWithoutCampgroundsNestedInput_1 = require("../inputs/UserUpdateOneRequiredWithoutCampgroundsNestedInput");
 let CampgroundUpdateInput = class CampgroundUpdateInput {
 };
 tslib_1.__decorate([
@@ -56,6 +57,12 @@ tslib_1.__decorate([
     }),
     tslib_1.__metadata("design:type", FloatFieldUpdateOperationsInput_1.FloatFieldUpdateOperationsInput)
 ], CampgroundUpdateInput.prototype, "price", void 0);
+tslib_1.__decorate([
+    TypeGraphQL.Field(_type => UserUpdateOneRequiredWithoutCampgroundsNestedInput_1.UserUpdateOneRequiredWithoutCampgroundsNestedInput, {
+        nullable: true
+    }),
+    tslib_1.__metadata("design:type", UserUpdateOneRequiredWithoutCampgroundsNestedInput_1.UserUpdateOneRequiredWithoutCampgroundsNestedInput)
+], CampgroundUpdateInput.prototype, "user", void 0);
 CampgroundUpdateInput = tslib_1.__decorate([
     TypeGraphQL.InputType("CampgroundUpdateInput", {
         isAbstract: true

@@ -48,6 +48,12 @@ tslib_1.__decorate([
     }),
     tslib_1.__metadata("design:type", String)
 ], CampgroundMinOrderByAggregateInput.prototype, "price", void 0);
+tslib_1.__decorate([
+    TypeGraphQL.Field(_type => SortOrder_1.SortOrder, {
+        nullable: true
+    }),
+    tslib_1.__metadata("design:type", String)
+], CampgroundMinOrderByAggregateInput.prototype, "userId", void 0);
 CampgroundMinOrderByAggregateInput = tslib_1.__decorate([
     TypeGraphQL.InputType("CampgroundMinOrderByAggregateInput", {
         isAbstract: true

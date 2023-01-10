@@ -33,6 +33,7 @@ declare const relationResolversMap: {
     Account: typeof relationResolvers.AccountRelationsResolver;
     Session: typeof relationResolvers.SessionRelationsResolver;
     User: typeof relationResolvers.UserRelationsResolver;
+    Campground: typeof relationResolvers.CampgroundRelationsResolver;
 };
 type RelationResolverModelNames = keyof typeof relationResolversMap;
 type RelationResolverActionNames<TModel extends RelationResolverModelNames> = keyof typeof relationResolversMap[TModel]["prototype"];

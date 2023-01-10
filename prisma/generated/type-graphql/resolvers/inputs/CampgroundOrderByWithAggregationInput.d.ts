@@ -12,6 +12,7 @@ export declare class CampgroundOrderByWithAggregationInput {
     secondaryImageUrls?: "asc" | "desc" | undefined;
     address?: "asc" | "desc" | undefined;
     price?: "asc" | "desc" | undefined;
+    userId?: "asc" | "desc" | undefined;
     _count?: CampgroundCountOrderByAggregateInput | undefined;
     _avg?: CampgroundAvgOrderByAggregateInput | undefined;
     _max?: CampgroundMaxOrderByAggregateInput | undefined;

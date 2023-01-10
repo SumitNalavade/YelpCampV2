@@ -13,4 +13,5 @@ export declare class CampgroundScalarWhereWithAggregatesInput {
     secondaryImageUrls?: StringNullableListFilter | undefined;
     address?: StringWithAggregatesFilter | undefined;
     price?: FloatWithAggregatesFilter | undefined;
+    userId?: StringWithAggregatesFilter | undefined;
 }

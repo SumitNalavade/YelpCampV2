@@ -1,17 +1,9 @@
 import "reflect-metadata";
 import { NextApiRequest, NextApiResponse } from "next";
 import { ApolloServer } from "apollo-server-micro";
-import { buildSchema, Query, Resolver } from "type-graphql";
+import { buildSchema } from "type-graphql";
 
 import CampgroundResolver from "./resolvers/campgroundResolver";
-
-@Resolver()
-class HelloResolver {
-  @Query(() => String)
-  hello() {
-    return "Hello World!";
-  }
-}
 
 export const config = {
     api: {
@@ -22,6 +14,7 @@ export const config = {
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     const schema = await buildSchema({
         resolvers: [CampgroundResolver],
+        validate: false
     });
   
     const server = new ApolloServer({

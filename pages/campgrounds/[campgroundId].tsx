@@ -1,5 +1,6 @@
 import { NextPage, GetServerSideProps } from "next";
 import { request, gql } from "graphql-request";
+import { useSession } from "next-auth/react";
 
 import { ICampground } from "../../utils/interfaces";
 
@@ -12,9 +13,11 @@ interface Props {
 }
 
 const CampgroundPage: NextPage<Props> = ({ campground }) => {
+  const { data: session } = useSession();
+
   return (
     <Layout>
-      <div className="container mx-auto h-screen">
+      <div className="container mx-auto h-full">
         <div className="bg-base-100">
             <div className="mx-2 mb-6">
                 <p className="text-3xl font-medium">{campground.name}</p>
@@ -46,14 +49,15 @@ const CampgroundPage: NextPage<Props> = ({ campground }) => {
                                 <AverageCampgroundRating rating={campground.averageRating} />
                             </div>
                             <div className="w-full flex justify-between items-center">
-                                <p className="text-lg">Posted by Ginger</p>
+                                <p className="text-lg">Posted by {campground.user.name}</p>
                                 <div className="avatar">
                                     <div className="w-8 rounded-full">
-                                        <img src="https://placeimg.com/192/192/people" />
+                                        <img src={campground.user.image!} />
                                     </div>
                                 </div>
                             </div>
-                            <div className="pt-6">
+
+                            { session ? ( <div className="pt-6">
                                 <div className="rating rating-md">
                                     <input type="radio" name="rating-1" className="mask mask-star bg-secondary" />
                                     <input type="radio" name="rating-1" className="mask mask-star bg-secondary" />
@@ -63,7 +67,8 @@ const CampgroundPage: NextPage<Props> = ({ campground }) => {
                                 </div>
                                 <textarea className="textarea textarea-bordered block w-full my-4" rows={4} placeholder="Review"></textarea>
                                 <button className="btn btn-secondary">Post</button>
-                            </div>
+                            </div> ) : "" }
+
                         </div>
                     </div>
                 </div>
@@ -87,11 +92,16 @@ export const getServerSideProps: GetServerSideProps = async(context) => {
                 secondaryImageUrls
                 address
                 price
+                user {
+                    name
+                    image
+                }
             }
         }
     `
 
     const campground = (await request("http://localhost:3000/api/graphql", query, { id: campgroundId }))["campground"]
+
 
     return {
         props: {

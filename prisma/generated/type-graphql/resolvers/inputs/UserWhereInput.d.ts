@@ -1,4 +1,5 @@
 import { AccountListRelationFilter } from "../inputs/AccountListRelationFilter";
+import { CampgroundListRelationFilter } from "../inputs/CampgroundListRelationFilter";
 import { DateTimeNullableFilter } from "../inputs/DateTimeNullableFilter";
 import { SessionListRelationFilter } from "../inputs/SessionListRelationFilter";
 import { StringFilter } from "../inputs/StringFilter";
@@ -14,4 +15,5 @@ export declare class UserWhereInput {
     image?: StringNullableFilter | undefined;
     accounts?: AccountListRelationFilter | undefined;
     sessions?: SessionListRelationFilter | undefined;
+    Campgrounds?: CampgroundListRelationFilter | undefined;
 }

@@ -6,5 +6,6 @@ export declare enum CampgroundScalarFieldEnum {
     primaryImageUrl = "primaryImageUrl",
     secondaryImageUrls = "secondaryImageUrls",
     address = "address",
-    price = "price"
+    price = "price",
+    userId = "userId"
 }

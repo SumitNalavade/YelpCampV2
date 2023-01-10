@@ -13,6 +13,7 @@ var CampgroundScalarFieldEnum;
     CampgroundScalarFieldEnum["secondaryImageUrls"] = "secondaryImageUrls";
     CampgroundScalarFieldEnum["address"] = "address";
     CampgroundScalarFieldEnum["price"] = "price";
+    CampgroundScalarFieldEnum["userId"] = "userId";
 })(CampgroundScalarFieldEnum = exports.CampgroundScalarFieldEnum || (exports.CampgroundScalarFieldEnum = {}));
 TypeGraphQL.registerEnumType(CampgroundScalarFieldEnum, {
     name: "CampgroundScalarFieldEnum",

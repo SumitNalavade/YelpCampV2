@@ -4,6 +4,7 @@ exports.UserOrderByWithRelationInput = void 0;
 const tslib_1 = require("tslib");
 const TypeGraphQL = tslib_1.__importStar(require("type-graphql"));
 const AccountOrderByRelationAggregateInput_1 = require("../inputs/AccountOrderByRelationAggregateInput");
+const CampgroundOrderByRelationAggregateInput_1 = require("../inputs/CampgroundOrderByRelationAggregateInput");
 const SessionOrderByRelationAggregateInput_1 = require("../inputs/SessionOrderByRelationAggregateInput");
 const SortOrder_1 = require("../../enums/SortOrder");
 let UserOrderByWithRelationInput = class UserOrderByWithRelationInput {
@@ -50,6 +51,12 @@ tslib_1.__decorate([
     }),
     tslib_1.__metadata("design:type", SessionOrderByRelationAggregateInput_1.SessionOrderByRelationAggregateInput)
 ], UserOrderByWithRelationInput.prototype, "sessions", void 0);
+tslib_1.__decorate([
+    TypeGraphQL.Field(_type => CampgroundOrderByRelationAggregateInput_1.CampgroundOrderByRelationAggregateInput, {
+        nullable: true
+    }),
+    tslib_1.__metadata("design:type", CampgroundOrderByRelationAggregateInput_1.CampgroundOrderByRelationAggregateInput)
+], UserOrderByWithRelationInput.prototype, "Campgrounds", void 0);
 UserOrderByWithRelationInput = tslib_1.__decorate([
     TypeGraphQL.InputType("UserOrderByWithRelationInput", {
         isAbstract: true

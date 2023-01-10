@@ -4,6 +4,7 @@ exports.UserUpdateWithoutSessionsInput = void 0;
 const tslib_1 = require("tslib");
 const TypeGraphQL = tslib_1.__importStar(require("type-graphql"));
 const AccountUpdateManyWithoutUserNestedInput_1 = require("../inputs/AccountUpdateManyWithoutUserNestedInput");
+const CampgroundUpdateManyWithoutUserNestedInput_1 = require("../inputs/CampgroundUpdateManyWithoutUserNestedInput");
 const NullableDateTimeFieldUpdateOperationsInput_1 = require("../inputs/NullableDateTimeFieldUpdateOperationsInput");
 const NullableStringFieldUpdateOperationsInput_1 = require("../inputs/NullableStringFieldUpdateOperationsInput");
 const StringFieldUpdateOperationsInput_1 = require("../inputs/StringFieldUpdateOperationsInput");
@@ -45,6 +46,12 @@ tslib_1.__decorate([
     }),
     tslib_1.__metadata("design:type", AccountUpdateManyWithoutUserNestedInput_1.AccountUpdateManyWithoutUserNestedInput)
 ], UserUpdateWithoutSessionsInput.prototype, "accounts", void 0);
+tslib_1.__decorate([
+    TypeGraphQL.Field(_type => CampgroundUpdateManyWithoutUserNestedInput_1.CampgroundUpdateManyWithoutUserNestedInput, {
+        nullable: true
+    }),
+    tslib_1.__metadata("design:type", CampgroundUpdateManyWithoutUserNestedInput_1.CampgroundUpdateManyWithoutUserNestedInput)
+], UserUpdateWithoutSessionsInput.prototype, "Campgrounds", void 0);
 UserUpdateWithoutSessionsInput = tslib_1.__decorate([
     TypeGraphQL.InputType("UserUpdateWithoutSessionsInput", {
         isAbstract: true

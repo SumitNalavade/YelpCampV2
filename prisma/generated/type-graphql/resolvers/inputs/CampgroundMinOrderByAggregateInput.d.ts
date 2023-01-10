@@ -6,4 +6,5 @@ export declare class CampgroundMinOrderByAggregateInput {
     primaryImageUrl?: "asc" | "desc" | undefined;
     address?: "asc" | "desc" | undefined;
     price?: "asc" | "desc" | undefined;
+    userId?: "asc" | "desc" | undefined;
 }

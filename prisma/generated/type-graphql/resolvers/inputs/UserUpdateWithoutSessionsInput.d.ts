@@ -1,4 +1,5 @@
 import { AccountUpdateManyWithoutUserNestedInput } from "../inputs/AccountUpdateManyWithoutUserNestedInput";
+import { CampgroundUpdateManyWithoutUserNestedInput } from "../inputs/CampgroundUpdateManyWithoutUserNestedInput";
 import { NullableDateTimeFieldUpdateOperationsInput } from "../inputs/NullableDateTimeFieldUpdateOperationsInput";
 import { NullableStringFieldUpdateOperationsInput } from "../inputs/NullableStringFieldUpdateOperationsInput";
 import { StringFieldUpdateOperationsInput } from "../inputs/StringFieldUpdateOperationsInput";
@@ -9,4 +10,5 @@ export declare class UserUpdateWithoutSessionsInput {
     emailVerified?: NullableDateTimeFieldUpdateOperationsInput | undefined;
     image?: NullableStringFieldUpdateOperationsInput | undefined;
     accounts?: AccountUpdateManyWithoutUserNestedInput | undefined;
+    Campgrounds?: CampgroundUpdateManyWithoutUserNestedInput | undefined;
 }

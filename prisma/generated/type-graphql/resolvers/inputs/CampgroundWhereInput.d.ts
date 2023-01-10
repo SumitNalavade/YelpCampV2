@@ -1,6 +1,7 @@
 import { FloatFilter } from "../inputs/FloatFilter";
 import { StringFilter } from "../inputs/StringFilter";
 import { StringNullableListFilter } from "../inputs/StringNullableListFilter";
+import { UserRelationFilter } from "../inputs/UserRelationFilter";
 export declare class CampgroundWhereInput {
     AND?: CampgroundWhereInput[] | undefined;
     OR?: CampgroundWhereInput[] | undefined;
@@ -13,4 +14,6 @@ export declare class CampgroundWhereInput {
     secondaryImageUrls?: StringNullableListFilter | undefined;
     address?: StringFilter | undefined;
     price?: FloatFilter | undefined;
+    user?: UserRelationFilter | undefined;
+    userId?: StringFilter | undefined;
 }

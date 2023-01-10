@@ -8,7 +8,9 @@ interface SignedInNavProps {
 
 const SignedInNav: React.FC<SignedInNavProps> = ({ user }) => {
   return (
-    <div className="dropdown dropdown-bottom dropdown-end">
+    <ul>
+      <li className="mx-2"><button className="btn btn-secondary btn-sm text-white">New Campground</button></li>
+      <li className="mx-2"><div className="dropdown dropdown-bottom dropdown-end">
       <div className="avatar" tabIndex={0}>
         <div className="w-8 rounded-full">
           <img src={user.image!} />
@@ -28,7 +30,8 @@ const SignedInNav: React.FC<SignedInNavProps> = ({ user }) => {
         </div>
 
       </div>
-    </div>
+    </div></li>
+    </ul>
   );
 };
 

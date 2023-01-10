@@ -1,4 +1,5 @@
 import { CampgroundCreatesecondaryImageUrlsInput } from "../inputs/CampgroundCreatesecondaryImageUrlsInput";
+import { UserCreateNestedOneWithoutCampgroundsInput } from "../inputs/UserCreateNestedOneWithoutCampgroundsInput";
 export declare class CampgroundCreateInput {
     id?: string | undefined;
     name: string;
@@ -8,4 +9,5 @@ export declare class CampgroundCreateInput {
     secondaryImageUrls?: CampgroundCreatesecondaryImageUrlsInput | undefined;
     address: string;
     price: number;
+    user: UserCreateNestedOneWithoutCampgroundsInput;
 }

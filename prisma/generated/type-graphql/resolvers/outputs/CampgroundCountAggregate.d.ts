@@ -7,5 +7,6 @@ export declare class CampgroundCountAggregate {
     secondaryImageUrls: number;
     address: number;
     price: number;
+    userId: number;
     _all: number;
 }

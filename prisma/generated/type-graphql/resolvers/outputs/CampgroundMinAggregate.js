@@ -47,6 +47,12 @@ tslib_1.__decorate([
     }),
     tslib_1.__metadata("design:type", Number)
 ], CampgroundMinAggregate.prototype, "price", void 0);
+tslib_1.__decorate([
+    TypeGraphQL.Field(_type => String, {
+        nullable: true
+    }),
+    tslib_1.__metadata("design:type", String)
+], CampgroundMinAggregate.prototype, "userId", void 0);
 CampgroundMinAggregate = tslib_1.__decorate([
     TypeGraphQL.ObjectType("CampgroundMinAggregate", {
         isAbstract: true

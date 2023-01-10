@@ -1,3 +1,4 @@
+import { User } from "../models/User";
 export declare class Campground {
     id: string;
     name: string;
@@ -7,4 +8,6 @@ export declare class Campground {
     secondaryImageUrls: string[];
     address: string;
     price: number;
+    user?: User;
+    userId: string;
 }

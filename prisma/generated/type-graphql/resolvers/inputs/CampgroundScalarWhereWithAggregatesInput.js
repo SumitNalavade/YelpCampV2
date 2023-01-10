@@ -75,6 +75,12 @@ tslib_1.__decorate([
     }),
     tslib_1.__metadata("design:type", FloatWithAggregatesFilter_1.FloatWithAggregatesFilter)
 ], CampgroundScalarWhereWithAggregatesInput.prototype, "price", void 0);
+tslib_1.__decorate([
+    TypeGraphQL.Field(_type => StringWithAggregatesFilter_1.StringWithAggregatesFilter, {
+        nullable: true
+    }),
+    tslib_1.__metadata("design:type", StringWithAggregatesFilter_1.StringWithAggregatesFilter)
+], CampgroundScalarWhereWithAggregatesInput.prototype, "userId", void 0);
 CampgroundScalarWhereWithAggregatesInput = CampgroundScalarWhereWithAggregatesInput_1 = tslib_1.__decorate([
     TypeGraphQL.InputType("CampgroundScalarWhereWithAggregatesInput", {
         isAbstract: true

@@ -7,6 +7,7 @@ const TypeGraphQL = tslib_1.__importStar(require("type-graphql"));
 const FloatFilter_1 = require("../inputs/FloatFilter");
 const StringFilter_1 = require("../inputs/StringFilter");
 const StringNullableListFilter_1 = require("../inputs/StringNullableListFilter");
+const UserRelationFilter_1 = require("../inputs/UserRelationFilter");
 let CampgroundWhereInput = CampgroundWhereInput_1 = class CampgroundWhereInput {
 };
 tslib_1.__decorate([
@@ -75,6 +76,18 @@ tslib_1.__decorate([
     }),
     tslib_1.__metadata("design:type", FloatFilter_1.FloatFilter)
 ], CampgroundWhereInput.prototype, "price", void 0);
+tslib_1.__decorate([
+    TypeGraphQL.Field(_type => UserRelationFilter_1.UserRelationFilter, {
+        nullable: true
+    }),
+    tslib_1.__metadata("design:type", UserRelationFilter_1.UserRelationFilter)
+], CampgroundWhereInput.prototype, "user", void 0);
+tslib_1.__decorate([
+    TypeGraphQL.Field(_type => StringFilter_1.StringFilter, {
+        nullable: true
+    }),
+    tslib_1.__metadata("design:type", StringFilter_1.StringFilter)
+], CampgroundWhereInput.prototype, "userId", void 0);
 CampgroundWhereInput = CampgroundWhereInput_1 = tslib_1.__decorate([
     TypeGraphQL.InputType("CampgroundWhereInput", {
         isAbstract: true

@@ -1,4 +1,5 @@
 import { AccountCreateNestedManyWithoutUserInput } from "../inputs/AccountCreateNestedManyWithoutUserInput";
+import { CampgroundCreateNestedManyWithoutUserInput } from "../inputs/CampgroundCreateNestedManyWithoutUserInput";
 import { SessionCreateNestedManyWithoutUserInput } from "../inputs/SessionCreateNestedManyWithoutUserInput";
 export declare class UserCreateInput {
     id?: string | undefined;
@@ -8,4 +9,5 @@ export declare class UserCreateInput {
     image?: string | undefined;
     accounts?: AccountCreateNestedManyWithoutUserInput | undefined;
     sessions?: SessionCreateNestedManyWithoutUserInput | undefined;
+    Campgrounds?: CampgroundCreateNestedManyWithoutUserInput | undefined;
 }

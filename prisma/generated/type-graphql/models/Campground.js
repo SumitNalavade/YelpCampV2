@@ -53,6 +53,12 @@ tslib_1.__decorate([
     }),
     tslib_1.__metadata("design:type", Number)
 ], Campground.prototype, "price", void 0);
+tslib_1.__decorate([
+    TypeGraphQL.Field(_type => String, {
+        nullable: false
+    }),
+    tslib_1.__metadata("design:type", String)
+], Campground.prototype, "userId", void 0);
 Campground = tslib_1.__decorate([
     TypeGraphQL.ObjectType("Campground", {
         isAbstract: true

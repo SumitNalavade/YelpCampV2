@@ -8,4 +8,5 @@ export declare class CampgroundCreateManyInput {
     secondaryImageUrls?: CampgroundCreatesecondaryImageUrlsInput | undefined;
     address: string;
     price: number;
+    userId: string;
 }
