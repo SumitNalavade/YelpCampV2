@@ -7,6 +7,7 @@ const TypeGraphQL = tslib_1.__importStar(require("type-graphql"));
 const AccountListRelationFilter_1 = require("../inputs/AccountListRelationFilter");
 const CampgroundListRelationFilter_1 = require("../inputs/CampgroundListRelationFilter");
 const DateTimeNullableFilter_1 = require("../inputs/DateTimeNullableFilter");
+const ReviewListRelationFilter_1 = require("../inputs/ReviewListRelationFilter");
 const SessionListRelationFilter_1 = require("../inputs/SessionListRelationFilter");
 const StringFilter_1 = require("../inputs/StringFilter");
 const StringNullableFilter_1 = require("../inputs/StringNullableFilter");
@@ -78,6 +79,12 @@ tslib_1.__decorate([
     }),
     tslib_1.__metadata("design:type", CampgroundListRelationFilter_1.CampgroundListRelationFilter)
 ], UserWhereInput.prototype, "Campgrounds", void 0);
+tslib_1.__decorate([
+    TypeGraphQL.Field(_type => ReviewListRelationFilter_1.ReviewListRelationFilter, {
+        nullable: true
+    }),
+    tslib_1.__metadata("design:type", ReviewListRelationFilter_1.ReviewListRelationFilter)
+], UserWhereInput.prototype, "Review", void 0);
 UserWhereInput = UserWhereInput_1 = tslib_1.__decorate([
     TypeGraphQL.InputType("UserWhereInput", {
         isAbstract: true

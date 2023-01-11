@@ -4,6 +4,7 @@ import { ApolloServer } from "apollo-server-micro";
 import { buildSchema } from "type-graphql";
 
 import CampgroundResolver from "./resolvers/campgroundResolver";
+import ReviewResolver from "./resolvers/reviewResolver";
 
 export const config = {
     api: {
@@ -14,7 +15,7 @@ export const config = {
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
 
     const schema = await buildSchema({
-        resolvers: [CampgroundResolver],
+        resolvers: [CampgroundResolver, ReviewResolver],
         validate: false
     });
   

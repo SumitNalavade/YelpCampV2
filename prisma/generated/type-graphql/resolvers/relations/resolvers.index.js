@@ -1,10 +1,12 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.UserRelationsResolver = exports.SessionRelationsResolver = exports.CampgroundRelationsResolver = exports.AccountRelationsResolver = void 0;
+exports.UserRelationsResolver = exports.SessionRelationsResolver = exports.ReviewRelationsResolver = exports.CampgroundRelationsResolver = exports.AccountRelationsResolver = void 0;
 var AccountRelationsResolver_1 = require("./Account/AccountRelationsResolver");
 Object.defineProperty(exports, "AccountRelationsResolver", { enumerable: true, get: function () { return AccountRelationsResolver_1.AccountRelationsResolver; } });
 var CampgroundRelationsResolver_1 = require("./Campground/CampgroundRelationsResolver");
 Object.defineProperty(exports, "CampgroundRelationsResolver", { enumerable: true, get: function () { return CampgroundRelationsResolver_1.CampgroundRelationsResolver; } });
+var ReviewRelationsResolver_1 = require("./Review/ReviewRelationsResolver");
+Object.defineProperty(exports, "ReviewRelationsResolver", { enumerable: true, get: function () { return ReviewRelationsResolver_1.ReviewRelationsResolver; } });
 var SessionRelationsResolver_1 = require("./Session/SessionRelationsResolver");
 Object.defineProperty(exports, "SessionRelationsResolver", { enumerable: true, get: function () { return SessionRelationsResolver_1.SessionRelationsResolver; } });
 var UserRelationsResolver_1 = require("./User/UserRelationsResolver");

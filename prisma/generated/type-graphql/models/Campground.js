@@ -3,6 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.Campground = void 0;
 const tslib_1 = require("tslib");
 const TypeGraphQL = tslib_1.__importStar(require("type-graphql"));
+const CampgroundCount_1 = require("../resolvers/outputs/CampgroundCount");
 let Campground = class Campground {
 };
 tslib_1.__decorate([
@@ -59,6 +60,12 @@ tslib_1.__decorate([
     }),
     tslib_1.__metadata("design:type", String)
 ], Campground.prototype, "userId", void 0);
+tslib_1.__decorate([
+    TypeGraphQL.Field(_type => CampgroundCount_1.CampgroundCount, {
+        nullable: true
+    }),
+    tslib_1.__metadata("design:type", CampgroundCount_1.CampgroundCount)
+], Campground.prototype, "_count", void 0);
 Campground = tslib_1.__decorate([
     TypeGraphQL.ObjectType("Campground", {
         isAbstract: true

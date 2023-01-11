@@ -1,10 +1,12 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.VerificationTokenCrudResolver = exports.UserCrudResolver = exports.SessionCrudResolver = exports.CampgroundCrudResolver = exports.AccountCrudResolver = void 0;
+exports.VerificationTokenCrudResolver = exports.UserCrudResolver = exports.SessionCrudResolver = exports.ReviewCrudResolver = exports.CampgroundCrudResolver = exports.AccountCrudResolver = void 0;
 var AccountCrudResolver_1 = require("./Account/AccountCrudResolver");
 Object.defineProperty(exports, "AccountCrudResolver", { enumerable: true, get: function () { return AccountCrudResolver_1.AccountCrudResolver; } });
 var CampgroundCrudResolver_1 = require("./Campground/CampgroundCrudResolver");
 Object.defineProperty(exports, "CampgroundCrudResolver", { enumerable: true, get: function () { return CampgroundCrudResolver_1.CampgroundCrudResolver; } });
+var ReviewCrudResolver_1 = require("./Review/ReviewCrudResolver");
+Object.defineProperty(exports, "ReviewCrudResolver", { enumerable: true, get: function () { return ReviewCrudResolver_1.ReviewCrudResolver; } });
 var SessionCrudResolver_1 = require("./Session/SessionCrudResolver");
 Object.defineProperty(exports, "SessionCrudResolver", { enumerable: true, get: function () { return SessionCrudResolver_1.SessionCrudResolver; } });
 var UserCrudResolver_1 = require("./User/UserCrudResolver");

@@ -23,6 +23,12 @@ tslib_1.__decorate([
     }),
     tslib_1.__metadata("design:type", Number)
 ], UserCount.prototype, "Campgrounds", void 0);
+tslib_1.__decorate([
+    TypeGraphQL.Field(_type => TypeGraphQL.Int, {
+        nullable: false
+    }),
+    tslib_1.__metadata("design:type", Number)
+], UserCount.prototype, "Review", void 0);
 UserCount = tslib_1.__decorate([
     TypeGraphQL.ObjectType("UserCount", {
         isAbstract: true

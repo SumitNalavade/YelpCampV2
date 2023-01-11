@@ -1,8 +1,7 @@
 import { Resolver, Query, Arg, FieldResolver, Root, Mutation, InputType, Field, ID } from "type-graphql";
 import prisma from "../utils/prismaConfig";
 
-import { Campground } from "../../../prisma/generated/type-graphql";
-import { User } from "../../../prisma/generated/type-graphql";
+import { Campground, Review, User } from "../../../prisma/generated/type-graphql";
 
 @InputType()
 class AddCampgroundInput implements Partial<Campground> {
@@ -49,6 +48,15 @@ class CampgroundResolver {
         return await prisma.user.findUnique({
             where: {
                 id: campground.userId
+            }
+        })
+    }
+
+    @FieldResolver(() => [Review])
+    async reviews(@Root() campground: Campground) {
+        return await prisma.review.findMany({
+            where: {
+                campgroundId: campground.id
             }
         })
     }

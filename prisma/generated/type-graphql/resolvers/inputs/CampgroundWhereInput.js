@@ -5,6 +5,7 @@ exports.CampgroundWhereInput = void 0;
 const tslib_1 = require("tslib");
 const TypeGraphQL = tslib_1.__importStar(require("type-graphql"));
 const FloatFilter_1 = require("../inputs/FloatFilter");
+const ReviewListRelationFilter_1 = require("../inputs/ReviewListRelationFilter");
 const StringFilter_1 = require("../inputs/StringFilter");
 const StringNullableListFilter_1 = require("../inputs/StringNullableListFilter");
 const UserRelationFilter_1 = require("../inputs/UserRelationFilter");
@@ -88,6 +89,12 @@ tslib_1.__decorate([
     }),
     tslib_1.__metadata("design:type", StringFilter_1.StringFilter)
 ], CampgroundWhereInput.prototype, "userId", void 0);
+tslib_1.__decorate([
+    TypeGraphQL.Field(_type => ReviewListRelationFilter_1.ReviewListRelationFilter, {
+        nullable: true
+    }),
+    tslib_1.__metadata("design:type", ReviewListRelationFilter_1.ReviewListRelationFilter)
+], CampgroundWhereInput.prototype, "Review", void 0);
 CampgroundWhereInput = CampgroundWhereInput_1 = tslib_1.__decorate([
     TypeGraphQL.InputType("CampgroundWhereInput", {
         isAbstract: true

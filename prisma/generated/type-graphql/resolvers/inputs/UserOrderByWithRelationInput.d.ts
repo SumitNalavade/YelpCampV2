@@ -1,5 +1,6 @@
 import { AccountOrderByRelationAggregateInput } from "../inputs/AccountOrderByRelationAggregateInput";
 import { CampgroundOrderByRelationAggregateInput } from "../inputs/CampgroundOrderByRelationAggregateInput";
+import { ReviewOrderByRelationAggregateInput } from "../inputs/ReviewOrderByRelationAggregateInput";
 import { SessionOrderByRelationAggregateInput } from "../inputs/SessionOrderByRelationAggregateInput";
 export declare class UserOrderByWithRelationInput {
     id?: "asc" | "desc" | undefined;
@@ -10,4 +11,5 @@ export declare class UserOrderByWithRelationInput {
     accounts?: AccountOrderByRelationAggregateInput | undefined;
     sessions?: SessionOrderByRelationAggregateInput | undefined;
     Campgrounds?: CampgroundOrderByRelationAggregateInput | undefined;
+    Review?: ReviewOrderByRelationAggregateInput | undefined;
 }

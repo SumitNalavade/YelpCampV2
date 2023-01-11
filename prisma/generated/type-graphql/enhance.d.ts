@@ -10,6 +10,7 @@ declare const crudResolversMap: {
     User: typeof crudResolvers.UserCrudResolver;
     VerificationToken: typeof crudResolvers.VerificationTokenCrudResolver;
     Campground: typeof crudResolvers.CampgroundCrudResolver;
+    Review: typeof crudResolvers.ReviewCrudResolver;
 };
 type ResolverModelNames = keyof typeof crudResolversMap;
 type ModelResolverActionNames<TModel extends ResolverModelNames> = keyof typeof crudResolversMap[TModel]["prototype"];
@@ -34,6 +35,7 @@ declare const relationResolversMap: {
     Session: typeof relationResolvers.SessionRelationsResolver;
     User: typeof relationResolvers.UserRelationsResolver;
     Campground: typeof relationResolvers.CampgroundRelationsResolver;
+    Review: typeof relationResolvers.ReviewRelationsResolver;
 };
 type RelationResolverModelNames = keyof typeof relationResolversMap;
 type RelationResolverActionNames<TModel extends RelationResolverModelNames> = keyof typeof relationResolversMap[TModel]["prototype"];

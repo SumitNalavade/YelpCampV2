@@ -4,6 +4,7 @@ exports.UserCreateWithoutCampgroundsInput = void 0;
 const tslib_1 = require("tslib");
 const TypeGraphQL = tslib_1.__importStar(require("type-graphql"));
 const AccountCreateNestedManyWithoutUserInput_1 = require("../inputs/AccountCreateNestedManyWithoutUserInput");
+const ReviewCreateNestedManyWithoutUserInput_1 = require("../inputs/ReviewCreateNestedManyWithoutUserInput");
 const SessionCreateNestedManyWithoutUserInput_1 = require("../inputs/SessionCreateNestedManyWithoutUserInput");
 let UserCreateWithoutCampgroundsInput = class UserCreateWithoutCampgroundsInput {
 };
@@ -49,6 +50,12 @@ tslib_1.__decorate([
     }),
     tslib_1.__metadata("design:type", SessionCreateNestedManyWithoutUserInput_1.SessionCreateNestedManyWithoutUserInput)
 ], UserCreateWithoutCampgroundsInput.prototype, "sessions", void 0);
+tslib_1.__decorate([
+    TypeGraphQL.Field(_type => ReviewCreateNestedManyWithoutUserInput_1.ReviewCreateNestedManyWithoutUserInput, {
+        nullable: true
+    }),
+    tslib_1.__metadata("design:type", ReviewCreateNestedManyWithoutUserInput_1.ReviewCreateNestedManyWithoutUserInput)
+], UserCreateWithoutCampgroundsInput.prototype, "Review", void 0);
 UserCreateWithoutCampgroundsInput = tslib_1.__decorate([
     TypeGraphQL.InputType("UserCreateWithoutCampgroundsInput", {
         isAbstract: true
