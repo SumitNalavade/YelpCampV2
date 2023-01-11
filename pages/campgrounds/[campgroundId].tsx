@@ -7,6 +7,7 @@ import { ICampground } from "../../utils/interfaces";
 import Layout from "../../Components/Layout";
 import CampgroundImage from "../../Components/CampgroundImage";
 import AverageCampgroundRating from "../../Components/AverageCampgroundRating";
+import ReviewCard from "../../Components/ReviewCard";
 
 interface Props {
   campground: ICampground;
@@ -40,6 +41,10 @@ const CampgroundPage: NextPage<Props> = ({ campground }) => {
         <div className="w-full grid lg:grid-cols-2 place-content-around">
           <div className="my-6">
             <p>{campground.description}</p>
+
+              { campground.reviews.map((review, index) => (
+                  <ReviewCard key={index} review={review} />
+              )) }
           </div>
 
           <div className="lg:mx-8">
@@ -127,6 +132,14 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
         user {
           name
           image
+        }
+        reviews {
+          rating
+          body
+          user {
+            name
+            image
+          }
         }
       }
     }
