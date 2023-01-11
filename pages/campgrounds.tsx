@@ -33,7 +33,7 @@ export const getServerSideProps: GetServerSideProps = async(context) => {
         campgrounds {
           id
           name
-          primaryImageUrl
+          primaryImageB64
           address
           price
         }

@@ -56,13 +56,13 @@ tslib_1.__decorate([
         nullable: true
     }),
     tslib_1.__metadata("design:type", StringFilter_1.StringFilter)
-], CampgroundScalarWhereInput.prototype, "primaryImageUrl", void 0);
+], CampgroundScalarWhereInput.prototype, "primaryImageB64", void 0);
 tslib_1.__decorate([
     TypeGraphQL.Field(_type => StringNullableListFilter_1.StringNullableListFilter, {
         nullable: true
     }),
     tslib_1.__metadata("design:type", StringNullableListFilter_1.StringNullableListFilter)
-], CampgroundScalarWhereInput.prototype, "secondaryImageUrls", void 0);
+], CampgroundScalarWhereInput.prototype, "secondaryImageB64s", void 0);
 tslib_1.__decorate([
     TypeGraphQL.Field(_type => StringFilter_1.StringFilter, {
         nullable: true

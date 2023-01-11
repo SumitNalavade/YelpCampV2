@@ -3,7 +3,7 @@ export declare class CampgroundMinAggregate {
     name: string | null;
     description: string | null;
     averageRating: number | null;
-    primaryImageUrl: string | null;
+    primaryImageB64: string | null;
     address: string | null;
     price: number | null;
     userId: string | null;

@@ -25,11 +25,11 @@ const CampgroundPage: NextPage<Props> = ({ campground }) => {
 
         <div className="grid lg:grid-cols-2">
           <div className="mx-2 flex justify-center max-h-[30rem]">
-            <CampgroundImage imageUrl={campground.primaryImageUrl} />
+            <CampgroundImage imageUrl={campground.primaryImageB64} />
           </div>
 
           <div className="grid grid-cols-2 gap-2">
-            {campground.secondaryImageUrls.map((imageUrl, index) => (
+            {campground.secondaryImageB64s.map((imageUrl, index) => (
               <div className="max-h-60 w-full flex" key={index}>
                 <CampgroundImage imageUrl={imageUrl} />
               </div>
@@ -120,8 +120,8 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
         name
         description
         averageRating
-        primaryImageUrl
-        secondaryImageUrls
+        primaryImageB64
+        secondaryImageB64s
         address
         price
         user {

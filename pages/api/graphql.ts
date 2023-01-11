@@ -12,6 +12,7 @@ export const config = {
 };
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+
     const schema = await buildSchema({
         resolvers: [CampgroundResolver],
         validate: false

@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.CampgroundCreateWithoutUserInput = void 0;
 const tslib_1 = require("tslib");
 const TypeGraphQL = tslib_1.__importStar(require("type-graphql"));
-const CampgroundCreatesecondaryImageUrlsInput_1 = require("../inputs/CampgroundCreatesecondaryImageUrlsInput");
+const CampgroundCreatesecondaryImageB64sInput_1 = require("../inputs/CampgroundCreatesecondaryImageB64sInput");
 let CampgroundCreateWithoutUserInput = class CampgroundCreateWithoutUserInput {
 };
 tslib_1.__decorate([
@@ -35,13 +35,13 @@ tslib_1.__decorate([
         nullable: false
     }),
     tslib_1.__metadata("design:type", String)
-], CampgroundCreateWithoutUserInput.prototype, "primaryImageUrl", void 0);
+], CampgroundCreateWithoutUserInput.prototype, "primaryImageB64", void 0);
 tslib_1.__decorate([
-    TypeGraphQL.Field(_type => CampgroundCreatesecondaryImageUrlsInput_1.CampgroundCreatesecondaryImageUrlsInput, {
+    TypeGraphQL.Field(_type => CampgroundCreatesecondaryImageB64sInput_1.CampgroundCreatesecondaryImageB64sInput, {
         nullable: true
     }),
-    tslib_1.__metadata("design:type", CampgroundCreatesecondaryImageUrlsInput_1.CampgroundCreatesecondaryImageUrlsInput)
-], CampgroundCreateWithoutUserInput.prototype, "secondaryImageUrls", void 0);
+    tslib_1.__metadata("design:type", CampgroundCreatesecondaryImageB64sInput_1.CampgroundCreatesecondaryImageB64sInput)
+], CampgroundCreateWithoutUserInput.prototype, "secondaryImageB64s", void 0);
 tslib_1.__decorate([
     TypeGraphQL.Field(_type => String, {
         nullable: false

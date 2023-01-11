@@ -9,8 +9,8 @@ export declare class CampgroundScalarWhereWithAggregatesInput {
     name?: StringWithAggregatesFilter | undefined;
     description?: StringWithAggregatesFilter | undefined;
     averageRating?: FloatWithAggregatesFilter | undefined;
-    primaryImageUrl?: StringWithAggregatesFilter | undefined;
-    secondaryImageUrls?: StringNullableListFilter | undefined;
+    primaryImageB64?: StringWithAggregatesFilter | undefined;
+    secondaryImageB64s?: StringNullableListFilter | undefined;
     address?: StringWithAggregatesFilter | undefined;
     price?: FloatWithAggregatesFilter | undefined;
     userId?: StringWithAggregatesFilter | undefined;

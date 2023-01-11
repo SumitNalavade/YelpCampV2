@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.CampgroundUpdateInput = void 0;
 const tslib_1 = require("tslib");
 const TypeGraphQL = tslib_1.__importStar(require("type-graphql"));
-const CampgroundUpdatesecondaryImageUrlsInput_1 = require("../inputs/CampgroundUpdatesecondaryImageUrlsInput");
+const CampgroundUpdatesecondaryImageB64sInput_1 = require("../inputs/CampgroundUpdatesecondaryImageB64sInput");
 const FloatFieldUpdateOperationsInput_1 = require("../inputs/FloatFieldUpdateOperationsInput");
 const StringFieldUpdateOperationsInput_1 = require("../inputs/StringFieldUpdateOperationsInput");
 const UserUpdateOneRequiredWithoutCampgroundsNestedInput_1 = require("../inputs/UserUpdateOneRequiredWithoutCampgroundsNestedInput");
@@ -38,13 +38,13 @@ tslib_1.__decorate([
         nullable: true
     }),
     tslib_1.__metadata("design:type", StringFieldUpdateOperationsInput_1.StringFieldUpdateOperationsInput)
-], CampgroundUpdateInput.prototype, "primaryImageUrl", void 0);
+], CampgroundUpdateInput.prototype, "primaryImageB64", void 0);
 tslib_1.__decorate([
-    TypeGraphQL.Field(_type => CampgroundUpdatesecondaryImageUrlsInput_1.CampgroundUpdatesecondaryImageUrlsInput, {
+    TypeGraphQL.Field(_type => CampgroundUpdatesecondaryImageB64sInput_1.CampgroundUpdatesecondaryImageB64sInput, {
         nullable: true
     }),
-    tslib_1.__metadata("design:type", CampgroundUpdatesecondaryImageUrlsInput_1.CampgroundUpdatesecondaryImageUrlsInput)
-], CampgroundUpdateInput.prototype, "secondaryImageUrls", void 0);
+    tslib_1.__metadata("design:type", CampgroundUpdatesecondaryImageB64sInput_1.CampgroundUpdatesecondaryImageB64sInput)
+], CampgroundUpdateInput.prototype, "secondaryImageB64s", void 0);
 tslib_1.__decorate([
     TypeGraphQL.Field(_type => StringFieldUpdateOperationsInput_1.StringFieldUpdateOperationsInput, {
         nullable: true

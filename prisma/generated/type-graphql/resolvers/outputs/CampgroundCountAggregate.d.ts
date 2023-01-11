@@ -3,8 +3,8 @@ export declare class CampgroundCountAggregate {
     name: number;
     description: number;
     averageRating: number;
-    primaryImageUrl: number;
-    secondaryImageUrls: number;
+    primaryImageB64: number;
+    secondaryImageB64s: number;
     address: number;
     price: number;
     userId: number;

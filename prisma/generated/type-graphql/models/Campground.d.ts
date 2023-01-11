@@ -4,8 +4,8 @@ export declare class Campground {
     name: string;
     description: string;
     averageRating: number;
-    primaryImageUrl: string;
-    secondaryImageUrls: string[];
+    primaryImageB64: string;
+    secondaryImageB64s: string[];
     address: string;
     price: number;
     user?: User;

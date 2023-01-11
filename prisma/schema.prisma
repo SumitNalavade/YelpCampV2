@@ -64,8 +64,8 @@ model Campground {
     name               String
     description        String
     averageRating      Float    @default(0)
-    primaryImageUrl    String
-    secondaryImageUrls String[]
+    primaryImageB64    String
+    secondaryImageB64s String[]
     address            String
     price              Float
     user               User     @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: Cascade)

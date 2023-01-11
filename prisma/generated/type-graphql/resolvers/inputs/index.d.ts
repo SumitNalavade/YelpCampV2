@@ -35,7 +35,7 @@ export { CampgroundCreateManyUserInputEnvelope } from "./CampgroundCreateManyUse
 export { CampgroundCreateNestedManyWithoutUserInput } from "./CampgroundCreateNestedManyWithoutUserInput";
 export { CampgroundCreateOrConnectWithoutUserInput } from "./CampgroundCreateOrConnectWithoutUserInput";
 export { CampgroundCreateWithoutUserInput } from "./CampgroundCreateWithoutUserInput";
-export { CampgroundCreatesecondaryImageUrlsInput } from "./CampgroundCreatesecondaryImageUrlsInput";
+export { CampgroundCreatesecondaryImageB64sInput } from "./CampgroundCreatesecondaryImageB64sInput";
 export { CampgroundListRelationFilter } from "./CampgroundListRelationFilter";
 export { CampgroundMaxOrderByAggregateInput } from "./CampgroundMaxOrderByAggregateInput";
 export { CampgroundMinOrderByAggregateInput } from "./CampgroundMinOrderByAggregateInput";
@@ -51,7 +51,7 @@ export { CampgroundUpdateManyWithWhereWithoutUserInput } from "./CampgroundUpdat
 export { CampgroundUpdateManyWithoutUserNestedInput } from "./CampgroundUpdateManyWithoutUserNestedInput";
 export { CampgroundUpdateWithWhereUniqueWithoutUserInput } from "./CampgroundUpdateWithWhereUniqueWithoutUserInput";
 export { CampgroundUpdateWithoutUserInput } from "./CampgroundUpdateWithoutUserInput";
-export { CampgroundUpdatesecondaryImageUrlsInput } from "./CampgroundUpdatesecondaryImageUrlsInput";
+export { CampgroundUpdatesecondaryImageB64sInput } from "./CampgroundUpdatesecondaryImageB64sInput";
 export { CampgroundUpsertWithWhereUniqueWithoutUserInput } from "./CampgroundUpsertWithWhereUniqueWithoutUserInput";
 export { CampgroundWhereInput } from "./CampgroundWhereInput";
 export { CampgroundWhereUniqueInput } from "./CampgroundWhereUniqueInput";

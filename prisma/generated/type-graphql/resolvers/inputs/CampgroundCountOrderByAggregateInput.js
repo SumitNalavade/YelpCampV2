@@ -35,13 +35,13 @@ tslib_1.__decorate([
         nullable: true
     }),
     tslib_1.__metadata("design:type", String)
-], CampgroundCountOrderByAggregateInput.prototype, "primaryImageUrl", void 0);
+], CampgroundCountOrderByAggregateInput.prototype, "primaryImageB64", void 0);
 tslib_1.__decorate([
     TypeGraphQL.Field(_type => SortOrder_1.SortOrder, {
         nullable: true
     }),
     tslib_1.__metadata("design:type", String)
-], CampgroundCountOrderByAggregateInput.prototype, "secondaryImageUrls", void 0);
+], CampgroundCountOrderByAggregateInput.prototype, "secondaryImageB64s", void 0);
 tslib_1.__decorate([
     TypeGraphQL.Field(_type => SortOrder_1.SortOrder, {
         nullable: true

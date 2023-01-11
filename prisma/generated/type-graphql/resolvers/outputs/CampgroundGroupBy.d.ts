@@ -8,8 +8,8 @@ export declare class CampgroundGroupBy {
     name: string;
     description: string;
     averageRating: number;
-    primaryImageUrl: string;
-    secondaryImageUrls: string[] | null;
+    primaryImageB64: string;
+    secondaryImageB64s: string[] | null;
     address: string;
     price: number;
     userId: string;

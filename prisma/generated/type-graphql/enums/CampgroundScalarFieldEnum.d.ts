@@ -3,8 +3,8 @@ export declare enum CampgroundScalarFieldEnum {
     name = "name",
     description = "description",
     averageRating = "averageRating",
-    primaryImageUrl = "primaryImageUrl",
-    secondaryImageUrls = "secondaryImageUrls",
+    primaryImageB64 = "primaryImageB64",
+    secondaryImageB64s = "secondaryImageB64s",
     address = "address",
     price = "price",
     userId = "userId"

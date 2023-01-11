@@ -13,10 +13,10 @@ class AddCampgroundInput implements Partial<Campground> {
     description: string
 
     @Field()
-    averageRating: number
+    primaryImageB64: string
 
     @Field(type => [String])
-    secondaryImageUrls: string[]
+    secondaryImageB64s: string[]
 
     @Field()
     address: string
@@ -55,15 +55,14 @@ class CampgroundResolver {
 
     @Mutation(() => Campground)
     async addCampground(@Arg("data") addCampgroundData: AddCampgroundInput) {
-        const { name, description, averageRating, secondaryImageUrls, address, price, userId } = addCampgroundData;
+        const { name, description, primaryImageB64, secondaryImageB64s, address, price, userId } = addCampgroundData;
 
         return await prisma.campground.create({
             data: {
                 name,
                 description,
-                averageRating,
-                primaryImageUrl: "",
-                secondaryImageUrls,
+                primaryImageB64,
+                secondaryImageB64s,
                 address,
                 price,
                 userId,

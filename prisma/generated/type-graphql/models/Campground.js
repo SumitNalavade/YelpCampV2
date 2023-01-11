@@ -34,13 +34,13 @@ tslib_1.__decorate([
         nullable: false
     }),
     tslib_1.__metadata("design:type", String)
-], Campground.prototype, "primaryImageUrl", void 0);
+], Campground.prototype, "primaryImageB64", void 0);
 tslib_1.__decorate([
     TypeGraphQL.Field(_type => [String], {
         nullable: false
     }),
     tslib_1.__metadata("design:type", Array)
-], Campground.prototype, "secondaryImageUrls", void 0);
+], Campground.prototype, "secondaryImageB64s", void 0);
 tslib_1.__decorate([
     TypeGraphQL.Field(_type => String, {
         nullable: false

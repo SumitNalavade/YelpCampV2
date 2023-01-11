@@ -1,4 +1,4 @@
-import { CampgroundUpdatesecondaryImageUrlsInput } from "../inputs/CampgroundUpdatesecondaryImageUrlsInput";
+import { CampgroundUpdatesecondaryImageB64sInput } from "../inputs/CampgroundUpdatesecondaryImageB64sInput";
 import { FloatFieldUpdateOperationsInput } from "../inputs/FloatFieldUpdateOperationsInput";
 import { StringFieldUpdateOperationsInput } from "../inputs/StringFieldUpdateOperationsInput";
 export declare class CampgroundUpdateWithoutUserInput {
@@ -6,8 +6,8 @@ export declare class CampgroundUpdateWithoutUserInput {
     name?: StringFieldUpdateOperationsInput | undefined;
     description?: StringFieldUpdateOperationsInput | undefined;
     averageRating?: FloatFieldUpdateOperationsInput | undefined;
-    primaryImageUrl?: StringFieldUpdateOperationsInput | undefined;
-    secondaryImageUrls?: CampgroundUpdatesecondaryImageUrlsInput | undefined;
+    primaryImageB64?: StringFieldUpdateOperationsInput | undefined;
+    secondaryImageB64s?: CampgroundUpdatesecondaryImageB64sInput | undefined;
     address?: StringFieldUpdateOperationsInput | undefined;
     price?: FloatFieldUpdateOperationsInput | undefined;
 }

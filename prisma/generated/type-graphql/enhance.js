@@ -268,7 +268,7 @@ const modelsInfo = {
     Session: ["id", "sessionToken", "userId", "expires"],
     User: ["id", "name", "email", "emailVerified", "image"],
     VerificationToken: ["identifier", "token", "expires"],
-    Campground: ["id", "name", "description", "averageRating", "primaryImageUrl", "secondaryImageUrls", "address", "price", "userId"]
+    Campground: ["id", "name", "description", "averageRating", "primaryImageB64", "secondaryImageB64s", "address", "price", "userId"]
 };
 function applyModelsEnhanceMap(modelsEnhanceMap) {
     for (const modelsEnhanceMapKey of Object.keys(modelsEnhanceMap)) {
@@ -290,7 +290,7 @@ const outputsInfo = {
     AggregateVerificationToken: ["_count", "_min", "_max"],
     VerificationTokenGroupBy: ["identifier", "token", "expires", "_count", "_min", "_max"],
     AggregateCampground: ["_count", "_avg", "_sum", "_min", "_max"],
-    CampgroundGroupBy: ["id", "name", "description", "averageRating", "primaryImageUrl", "secondaryImageUrls", "address", "price", "userId", "_count", "_avg", "_sum", "_min", "_max"],
+    CampgroundGroupBy: ["id", "name", "description", "averageRating", "primaryImageB64", "secondaryImageB64s", "address", "price", "userId", "_count", "_avg", "_sum", "_min", "_max"],
     AffectedRowsOutput: ["count"],
     AccountCountAggregate: ["id", "userId", "type", "provider", "providerAccountId", "refresh_token", "access_token", "expires_at", "token_type", "scope", "id_token", "session_state", "_all"],
     AccountAvgAggregate: ["expires_at"],
@@ -307,11 +307,11 @@ const outputsInfo = {
     VerificationTokenCountAggregate: ["identifier", "token", "expires", "_all"],
     VerificationTokenMinAggregate: ["identifier", "token", "expires"],
     VerificationTokenMaxAggregate: ["identifier", "token", "expires"],
-    CampgroundCountAggregate: ["id", "name", "description", "averageRating", "primaryImageUrl", "secondaryImageUrls", "address", "price", "userId", "_all"],
+    CampgroundCountAggregate: ["id", "name", "description", "averageRating", "primaryImageB64", "secondaryImageB64s", "address", "price", "userId", "_all"],
     CampgroundAvgAggregate: ["averageRating", "price"],
     CampgroundSumAggregate: ["averageRating", "price"],
-    CampgroundMinAggregate: ["id", "name", "description", "averageRating", "primaryImageUrl", "address", "price", "userId"],
-    CampgroundMaxAggregate: ["id", "name", "description", "averageRating", "primaryImageUrl", "address", "price", "userId"]
+    CampgroundMinAggregate: ["id", "name", "description", "averageRating", "primaryImageB64", "address", "price", "userId"],
+    CampgroundMaxAggregate: ["id", "name", "description", "averageRating", "primaryImageB64", "address", "price", "userId"]
 };
 function applyOutputTypesEnhanceMap(outputTypesEnhanceMap) {
     for (const outputTypeEnhanceMapKey of Object.keys(outputTypesEnhanceMap)) {
@@ -344,11 +344,11 @@ const inputsInfo = {
     VerificationTokenWhereUniqueInput: ["token", "identifier_token"],
     VerificationTokenOrderByWithAggregationInput: ["identifier", "token", "expires", "_count", "_max", "_min"],
     VerificationTokenScalarWhereWithAggregatesInput: ["AND", "OR", "NOT", "identifier", "token", "expires"],
-    CampgroundWhereInput: ["AND", "OR", "NOT", "id", "name", "description", "averageRating", "primaryImageUrl", "secondaryImageUrls", "address", "price", "user", "userId"],
-    CampgroundOrderByWithRelationInput: ["id", "name", "description", "averageRating", "primaryImageUrl", "secondaryImageUrls", "address", "price", "user", "userId"],
+    CampgroundWhereInput: ["AND", "OR", "NOT", "id", "name", "description", "averageRating", "primaryImageB64", "secondaryImageB64s", "address", "price", "user", "userId"],
+    CampgroundOrderByWithRelationInput: ["id", "name", "description", "averageRating", "primaryImageB64", "secondaryImageB64s", "address", "price", "user", "userId"],
     CampgroundWhereUniqueInput: ["id"],
-    CampgroundOrderByWithAggregationInput: ["id", "name", "description", "averageRating", "primaryImageUrl", "secondaryImageUrls", "address", "price", "userId", "_count", "_avg", "_max", "_min", "_sum"],
-    CampgroundScalarWhereWithAggregatesInput: ["AND", "OR", "NOT", "id", "name", "description", "averageRating", "primaryImageUrl", "secondaryImageUrls", "address", "price", "userId"],
+    CampgroundOrderByWithAggregationInput: ["id", "name", "description", "averageRating", "primaryImageB64", "secondaryImageB64s", "address", "price", "userId", "_count", "_avg", "_max", "_min", "_sum"],
+    CampgroundScalarWhereWithAggregatesInput: ["AND", "OR", "NOT", "id", "name", "description", "averageRating", "primaryImageB64", "secondaryImageB64s", "address", "price", "userId"],
     AccountCreateInput: ["id", "type", "provider", "providerAccountId", "refresh_token", "access_token", "expires_at", "token_type", "scope", "id_token", "session_state", "user"],
     AccountUpdateInput: ["id", "type", "provider", "providerAccountId", "refresh_token", "access_token", "expires_at", "token_type", "scope", "id_token", "session_state", "user"],
     AccountCreateManyInput: ["id", "userId", "type", "provider", "providerAccountId", "refresh_token", "access_token", "expires_at", "token_type", "scope", "id_token", "session_state"],
@@ -365,10 +365,10 @@ const inputsInfo = {
     VerificationTokenUpdateInput: ["identifier", "token", "expires"],
     VerificationTokenCreateManyInput: ["identifier", "token", "expires"],
     VerificationTokenUpdateManyMutationInput: ["identifier", "token", "expires"],
-    CampgroundCreateInput: ["id", "name", "description", "averageRating", "primaryImageUrl", "secondaryImageUrls", "address", "price", "user"],
-    CampgroundUpdateInput: ["id", "name", "description", "averageRating", "primaryImageUrl", "secondaryImageUrls", "address", "price", "user"],
-    CampgroundCreateManyInput: ["id", "name", "description", "averageRating", "primaryImageUrl", "secondaryImageUrls", "address", "price", "userId"],
-    CampgroundUpdateManyMutationInput: ["id", "name", "description", "averageRating", "primaryImageUrl", "secondaryImageUrls", "address", "price"],
+    CampgroundCreateInput: ["id", "name", "description", "averageRating", "primaryImageB64", "secondaryImageB64s", "address", "price", "user"],
+    CampgroundUpdateInput: ["id", "name", "description", "averageRating", "primaryImageB64", "secondaryImageB64s", "address", "price", "user"],
+    CampgroundCreateManyInput: ["id", "name", "description", "averageRating", "primaryImageB64", "secondaryImageB64s", "address", "price", "userId"],
+    CampgroundUpdateManyMutationInput: ["id", "name", "description", "averageRating", "primaryImageB64", "secondaryImageB64s", "address", "price"],
     StringFilter: ["equals", "in", "notIn", "lt", "lte", "gt", "gte", "contains", "startsWith", "endsWith", "mode", "not"],
     StringNullableFilter: ["equals", "in", "notIn", "lt", "lte", "gt", "gte", "contains", "startsWith", "endsWith", "mode", "not"],
     IntNullableFilter: ["equals", "in", "notIn", "lt", "lte", "gt", "gte", "not"],
@@ -404,10 +404,10 @@ const inputsInfo = {
     VerificationTokenMinOrderByAggregateInput: ["identifier", "token", "expires"],
     FloatFilter: ["equals", "in", "notIn", "lt", "lte", "gt", "gte", "not"],
     StringNullableListFilter: ["equals", "has", "hasEvery", "hasSome", "isEmpty"],
-    CampgroundCountOrderByAggregateInput: ["id", "name", "description", "averageRating", "primaryImageUrl", "secondaryImageUrls", "address", "price", "userId"],
+    CampgroundCountOrderByAggregateInput: ["id", "name", "description", "averageRating", "primaryImageB64", "secondaryImageB64s", "address", "price", "userId"],
     CampgroundAvgOrderByAggregateInput: ["averageRating", "price"],
-    CampgroundMaxOrderByAggregateInput: ["id", "name", "description", "averageRating", "primaryImageUrl", "address", "price", "userId"],
-    CampgroundMinOrderByAggregateInput: ["id", "name", "description", "averageRating", "primaryImageUrl", "address", "price", "userId"],
+    CampgroundMaxOrderByAggregateInput: ["id", "name", "description", "averageRating", "primaryImageB64", "address", "price", "userId"],
+    CampgroundMinOrderByAggregateInput: ["id", "name", "description", "averageRating", "primaryImageB64", "address", "price", "userId"],
     CampgroundSumOrderByAggregateInput: ["averageRating", "price"],
     FloatWithAggregatesFilter: ["equals", "in", "notIn", "lt", "lte", "gt", "gte", "not", "_count", "_avg", "_sum", "_min", "_max"],
     UserCreateNestedOneWithoutAccountsInput: ["create", "connectOrCreate", "connect"],
@@ -425,10 +425,10 @@ const inputsInfo = {
     AccountUpdateManyWithoutUserNestedInput: ["create", "connectOrCreate", "upsert", "createMany", "set", "disconnect", "delete", "connect", "update", "updateMany", "deleteMany"],
     SessionUpdateManyWithoutUserNestedInput: ["create", "connectOrCreate", "upsert", "createMany", "set", "disconnect", "delete", "connect", "update", "updateMany", "deleteMany"],
     CampgroundUpdateManyWithoutUserNestedInput: ["create", "connectOrCreate", "upsert", "createMany", "set", "disconnect", "delete", "connect", "update", "updateMany", "deleteMany"],
-    CampgroundCreatesecondaryImageUrlsInput: ["set"],
+    CampgroundCreatesecondaryImageB64sInput: ["set"],
     UserCreateNestedOneWithoutCampgroundsInput: ["create", "connectOrCreate", "connect"],
     FloatFieldUpdateOperationsInput: ["set", "increment", "decrement", "multiply", "divide"],
-    CampgroundUpdatesecondaryImageUrlsInput: ["set", "push"],
+    CampgroundUpdatesecondaryImageB64sInput: ["set", "push"],
     UserUpdateOneRequiredWithoutCampgroundsNestedInput: ["create", "connectOrCreate", "upsert", "connect", "update"],
     NestedStringFilter: ["equals", "in", "notIn", "lt", "lte", "gt", "gte", "contains", "startsWith", "endsWith", "not"],
     NestedStringNullableFilter: ["equals", "in", "notIn", "lt", "lte", "gt", "gte", "contains", "startsWith", "endsWith", "not"],
@@ -458,7 +458,7 @@ const inputsInfo = {
     SessionCreateWithoutUserInput: ["id", "sessionToken", "expires"],
     SessionCreateOrConnectWithoutUserInput: ["where", "create"],
     SessionCreateManyUserInputEnvelope: ["data", "skipDuplicates"],
-    CampgroundCreateWithoutUserInput: ["id", "name", "description", "averageRating", "primaryImageUrl", "secondaryImageUrls", "address", "price"],
+    CampgroundCreateWithoutUserInput: ["id", "name", "description", "averageRating", "primaryImageB64", "secondaryImageB64s", "address", "price"],
     CampgroundCreateOrConnectWithoutUserInput: ["where", "create"],
     CampgroundCreateManyUserInputEnvelope: ["data", "skipDuplicates"],
     AccountUpsertWithWhereUniqueWithoutUserInput: ["where", "update", "create"],
@@ -472,17 +472,17 @@ const inputsInfo = {
     CampgroundUpsertWithWhereUniqueWithoutUserInput: ["where", "update", "create"],
     CampgroundUpdateWithWhereUniqueWithoutUserInput: ["where", "data"],
     CampgroundUpdateManyWithWhereWithoutUserInput: ["where", "data"],
-    CampgroundScalarWhereInput: ["AND", "OR", "NOT", "id", "name", "description", "averageRating", "primaryImageUrl", "secondaryImageUrls", "address", "price", "userId"],
+    CampgroundScalarWhereInput: ["AND", "OR", "NOT", "id", "name", "description", "averageRating", "primaryImageB64", "secondaryImageB64s", "address", "price", "userId"],
     UserCreateWithoutCampgroundsInput: ["id", "name", "email", "emailVerified", "image", "accounts", "sessions"],
     UserCreateOrConnectWithoutCampgroundsInput: ["where", "create"],
     UserUpsertWithoutCampgroundsInput: ["update", "create"],
     UserUpdateWithoutCampgroundsInput: ["id", "name", "email", "emailVerified", "image", "accounts", "sessions"],
     AccountCreateManyUserInput: ["id", "type", "provider", "providerAccountId", "refresh_token", "access_token", "expires_at", "token_type", "scope", "id_token", "session_state"],
     SessionCreateManyUserInput: ["id", "sessionToken", "expires"],
-    CampgroundCreateManyUserInput: ["id", "name", "description", "averageRating", "primaryImageUrl", "secondaryImageUrls", "address", "price"],
+    CampgroundCreateManyUserInput: ["id", "name", "description", "averageRating", "primaryImageB64", "secondaryImageB64s", "address", "price"],
     AccountUpdateWithoutUserInput: ["id", "type", "provider", "providerAccountId", "refresh_token", "access_token", "expires_at", "token_type", "scope", "id_token", "session_state"],
     SessionUpdateWithoutUserInput: ["id", "sessionToken", "expires"],
-    CampgroundUpdateWithoutUserInput: ["id", "name", "description", "averageRating", "primaryImageUrl", "secondaryImageUrls", "address", "price"]
+    CampgroundUpdateWithoutUserInput: ["id", "name", "description", "averageRating", "primaryImageB64", "secondaryImageB64s", "address", "price"]
 };
 function applyInputTypesEnhanceMap(inputTypesEnhanceMap) {
     for (const inputTypeEnhanceMapKey of Object.keys(inputTypesEnhanceMap)) {
