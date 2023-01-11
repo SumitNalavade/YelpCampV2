@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { signOut } from "next-auth/react";
 
 import { User } from "next-auth";
@@ -9,7 +10,7 @@ interface SignedInNavProps {
 const SignedInNav: React.FC<SignedInNavProps> = ({ user }) => {
   return (
     <ul>
-      <li className="mx-2"><button className="btn btn-secondary btn-sm text-white">New Campground</button></li>
+      <Link href="/campgrounds/new"><li className="mx-2"><button className="btn btn-secondary btn-sm text-white">New Campground</button></li></Link>
       <li className="mx-2"><div className="dropdown dropdown-bottom dropdown-end">
       <div className="avatar" tabIndex={0}>
         <div className="w-8 rounded-full">
