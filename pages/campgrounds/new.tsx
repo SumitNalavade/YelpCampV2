@@ -43,37 +43,36 @@ const NewCampground: NextPage = () => {
 
   return (
     <Layout>
-      <div className="container mx-auto grid grid-cols-2 h-full">
-        <div>
-          <div className="mb-16">
+      <div className="container mx-auto md:grid grid-cols-2 gap-10 h-full">
+      <div>
+          <div className="mb-10 hidden md:block">
+            <p className="text-3xl font-medium">What does this location looks like?</p>
+            <p>Upload a primary image and some supporting images</p>
+          </div>
+          <div className="mb-16 w-full">
             <Dropzone
               multiple={false}
               text={"Upload Primary Image"}
               setFile={setPrimaryImages}
+              uploadedFiles={primaryImages!}
             />
-            <p className="my-4">
-              {primaryImages?.length! > 0 ? (
-                <p>{primaryImages![0].name}</p>
-              ) : (
-                ""
-              )}
-            </p>
           </div>
-          <div className="h-full">
+          <div className="h-full w-full">
             <Dropzone
               multiple={true}
               text={"Upload Secondary Images"}
               setFile={setSecondaryImages}
+              uploadedFiles={secondaryImages!}
             />
-            {secondaryImages?.map((image, index) => (
-              <p className="my-4" key={index}>
-                {image.name}
-              </p>
-            ))}
           </div>
         </div>
 
-        <div className="flex flex-col items-center">
+
+      <div className="flex flex-col items-center">
+          <div className="mb-10 w-full max-w-lg hidden md:block">
+            <p className="text-3xl font-medium">Basic Information</p>
+            <p>Give up some basic info about this information</p>
+          </div>
           <div className="mb-4 w-full max-w-lg">
             <label className="label-text block text-secondary text-lg font-medium my-2">
               Name
