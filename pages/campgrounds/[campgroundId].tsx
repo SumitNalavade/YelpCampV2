@@ -8,7 +8,11 @@ import { ICampground } from "../../utils/interfaces";
 import Layout from "../../Components/Layout";
 import CampgroundImage from "../../Components/CampgroundImage";
 import AverageCampgroundRating from "../../Components/AverageCampgroundRating";
+import CampgroundRating from "../../Components/CampgroundRating";
 import ReviewCard from "../../Components/ReviewCard";
+
+import { deleteCampground } from "../../utils/controllers/campgroundController";
+import { addReview } from "../../utils/controllers/reviewController";
 
 interface Props {
   campground: ICampground;
@@ -18,23 +22,20 @@ const CampgroundPage: NextPage<Props> = ({ campground }) => {
   const router = useRouter();
   const { data: session } = useSession();
 
-  const deleteCampground = async() => {
-    const deleteCampgroundMutation = gql`
-      mutation deleteCampground($id: String!) {
-        deleteCampground(id: $id) {
-          name
-          id
-        }
-      }
-    `
+  const handleDeleteCampground = async() => {
+    await deleteCampground(campground.id)
 
-  await request('http://localhost:3000/api/graphql', deleteCampgroundMutation, {
-    id: campground.id
-  })
-
-  router.push(`/campgrounds`)
-
+    router.push(`/campgrounds`)
   }
+
+  const handleAddReview = async(rating: number, body: string) => {
+    const { campgroundId } = await addReview(rating, body, session?.user.id!, campground.id)
+
+    router.push(`/campgrounds/${campgroundId}`)
+  }
+
+  campground.reviews.map((review) => console.log(review.user.id))
+  console.log(session?.user.id)
 
   return (
     <Layout>
@@ -88,50 +89,16 @@ const CampgroundPage: NextPage<Props> = ({ campground }) => {
                   </div>
                 </div>
 
-                {session && campground.user.id != session.user.id ? (
-                  <div className="pt-6">
-                    <div className="rating rating-md">
-                      <input
-                        type="radio"
-                        name="rating-1"
-                        className="mask mask-star bg-secondary"
-                      />
-                      <input
-                        type="radio"
-                        name="rating-1"
-                        className="mask mask-star bg-secondary"
-                      />
-                      <input
-                        type="radio"
-                        name="rating-1"
-                        className="mask mask-star bg-secondary"
-                      />
-                      <input
-                        type="radio"
-                        name="rating-1"
-                        className="mask mask-star bg-secondary"
-                      />
-                      <input
-                        type="radio"
-                        name="rating-1"
-                        className="mask mask-star"
-                      />
-                    </div>
-                    <textarea
-                      className="textarea textarea-bordered block w-full my-4"
-                      rows={4}
-                      placeholder="Review body"
-                    ></textarea>
-                    <button className="btn btn-secondary">Delete</button>
-                  </div>
+                {session && campground.user.id != session.user.id && !campground.reviews.find((review) => review.user.id === session?.user.id) ? (
+                  <CampgroundRating addReview={handleAddReview} />
                 ) : (
                   ""
                 )}
 
                 {session && campground.user.id === session.user.id ? (
                   <div className="pt-6">
-                    <button className="btn btn-primary mx-2 text-white">Update Campground</button>
-                    <button className="btn btn-secondary mx-2 text-white" onClick={deleteCampground}>Delete Campground</button>
+                    <button className="btn btn-primary m-2 text-white">Update Campground</button>
+                    <button className="btn btn-secondary m-2 text-white" onClick={handleDeleteCampground}>Delete Campground</button>
                   </div>
                 ) : (
                   ""

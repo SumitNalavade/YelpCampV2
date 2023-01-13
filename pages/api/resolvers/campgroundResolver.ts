@@ -1,7 +1,7 @@
 import { Resolver, Query, Arg, FieldResolver, Root, Mutation, InputType, Field, ID } from "type-graphql";
 import prisma from "../utils/prismaConfig";
 
-import { Campground, DeleteOneCampgroundArgs, Review, User } from "../../../prisma/generated/type-graphql";
+import { Campground, Review, User } from "../../../prisma/generated/type-graphql";
 
 @InputType()
 class AddCampgroundInput implements Partial<Campground> {

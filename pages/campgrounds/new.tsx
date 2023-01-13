@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { NextPage } from "next";
 import { useRouter } from 'next/router'
-import { gql, request } from "graphql-request";
 import { useSession } from "next-auth/react";
 
 import Layout from "../../Components/Layout";
 import Dropzone from "../../Components/Dropzone";
-import toBase64 from "../../utils/FileToBase64";
+
+import { addCampground } from "../../utils/controllers/campgroundController";
 
 const NewCampground: NextPage = () => {
   const router = useRouter()
@@ -19,26 +19,10 @@ const NewCampground: NextPage = () => {
   const [primaryImages, setPrimaryImages] = useState<File[]>([]);
   const [secondaryImages, setSecondaryImages] = useState<File[]>([]);
 
-  const addCampground = async () => {
-    const addCampgroundMutation = gql`
-      mutation addCampground($name: String!, $description: String!, $primaryImageB64: String!, $secondaryImageB64s: [String!]!, $address: String!, $price: Float!, $userId: ID!) {
-        addCampground(data: { name: $name, description: $description, primaryImageB64: $primaryImageB64, secondaryImageB64s: $secondaryImageB64s, address: $address, price: $price, userId: $userId }) {
-          id
-        }
-      }
-    `
-  const data = await request('http://localhost:3000/api/graphql', addCampgroundMutation, {
-    name,
-    description,
-    primaryImageB64: await toBase64(primaryImages![0]),
-    secondaryImageB64s: await Promise.all(secondaryImages?.map(async(image) => toBase64(image)) as unknown as string[]),
-    address,
-    price: Number(price),
-    userId: session?.user.id
-  })
+  const handleAddCampground = async () => {
+    const { id } = await addCampground(name, description, primaryImages, secondaryImages, address, Number(price), session!.user.id!)
 
-  router.push(`/campgrounds/${data.addCampground.id}`)
-
+    router.push(`/campgrounds/${id}`)
   };
 
   return (
@@ -121,7 +105,7 @@ const NewCampground: NextPage = () => {
             />
           </div>
           <div className="my-4 w-full max-w-lg">
-            <button className="btn btn-secondary" onClick={addCampground}>Add Campground</button>
+            <button className="btn btn-secondary" onClick={handleAddCampground}>Add Campground</button>
           </div>
         </div>
       </div>
