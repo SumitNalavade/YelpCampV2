@@ -1,6 +1,7 @@
 import { NextPage, GetServerSideProps } from "next";
-import { request, gql } from "graphql-request";
+import { useRouter } from 'next/router'
 import { useSession } from "next-auth/react";
+import { request, gql } from "graphql-request";
 
 import { ICampground } from "../../utils/interfaces";
 
@@ -14,7 +15,26 @@ interface Props {
 }
 
 const CampgroundPage: NextPage<Props> = ({ campground }) => {
+  const router = useRouter();
   const { data: session } = useSession();
+
+  const deleteCampground = async() => {
+    const deleteCampgroundMutation = gql`
+      mutation deleteCampground($id: String!) {
+        deleteCampground(id: $id) {
+          name
+          id
+        }
+      }
+    `
+
+  await request('http://localhost:3000/api/graphql', deleteCampgroundMutation, {
+    id: campground.id
+  })
+
+  router.push(`/campgrounds`)
+
+  }
 
   return (
     <Layout>
@@ -42,9 +62,9 @@ const CampgroundPage: NextPage<Props> = ({ campground }) => {
           <div className="my-6">
             <p>{campground.description}</p>
 
-              { campground.reviews.map((review, index) => (
-                  <ReviewCard key={index} review={review} />
-              )) }
+            {campground.reviews.map((review, index) => (
+              <ReviewCard key={index} review={review} />
+            ))}
           </div>
 
           <div className="lg:mx-8">
@@ -68,7 +88,7 @@ const CampgroundPage: NextPage<Props> = ({ campground }) => {
                   </div>
                 </div>
 
-                {session ? (
+                {session && campground.user.id != session.user.id ? (
                   <div className="pt-6">
                     <div className="rating rating-md">
                       <input
@@ -100,9 +120,18 @@ const CampgroundPage: NextPage<Props> = ({ campground }) => {
                     <textarea
                       className="textarea textarea-bordered block w-full my-4"
                       rows={4}
-                      placeholder="Review"
+                      placeholder="Review body"
                     ></textarea>
-                    <button className="btn btn-secondary">Post</button>
+                    <button className="btn btn-secondary">Delete</button>
+                  </div>
+                ) : (
+                  ""
+                )}
+
+                {session && campground.user.id === session.user.id ? (
+                  <div className="pt-6">
+                    <button className="btn btn-primary mx-2 text-white">Update Campground</button>
+                    <button className="btn btn-secondary mx-2 text-white" onClick={deleteCampground}>Delete Campground</button>
                   </div>
                 ) : (
                   ""
@@ -122,6 +151,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   const query = gql`
     query getCampground($id: String!) {
       campground(id: $id) {
+        id
         name
         description
         averageRating
@@ -130,6 +160,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
         address
         price
         user {
+          id
           name
           image
         }

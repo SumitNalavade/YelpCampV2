@@ -22,12 +22,12 @@ const SignedInNav: React.FC<SignedInNavProps> = ({ user }) => {
         className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52"
       >
         
-        <div className="flex flex-col justify-center items-center">
+        <div className="p-4 flex flex-col justify-center items-center">
             <div>
                 <img src={user.image!} alt="" className="rounded-full w-full w-14" />
             </div>
             <p className="font-medium my-2">{user.name}</p>
-            <button className="btn btn-secondary btn-sm" onClick={() => signOut()}>Sign Out</button>
+            <Link href={"/user/campgrounds"} className="btn btn-secondary btn-sm w-full my-2 text-xs text-white">Sign Out</Link>
         </div>
 
       </div>

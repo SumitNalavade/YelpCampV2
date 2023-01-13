@@ -1,4 +1,4 @@
-import { User } from "@prisma/client";
+import { User } from "../prisma/generated/type-graphql";
 
 export interface ICampground {
   id: string;

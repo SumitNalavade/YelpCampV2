@@ -16,8 +16,8 @@ const NewCampground: NextPage = () => {
   const [address, setAddress] = useState("");
   const [price, setPrice] = useState("");
   const [description, setDescription] = useState("");
-  const [primaryImages, setPrimaryImages] = useState<File[]>();
-  const [secondaryImages, setSecondaryImages] = useState<File[]>();
+  const [primaryImages, setPrimaryImages] = useState<File[]>([]);
+  const [secondaryImages, setSecondaryImages] = useState<File[]>([]);
 
   const addCampground = async () => {
     const addCampgroundMutation = gql`
@@ -43,7 +43,7 @@ const NewCampground: NextPage = () => {
 
   return (
     <Layout>
-      <div className="container mx-auto md:grid grid-cols-2 gap-10 h-full">
+      <div className="mx-6 md:grid grid-cols-2 gap-10 h-full">
       <div>
           <div className="mb-10 hidden md:block">
             <p className="text-3xl font-medium">What does this location looks like?</p>

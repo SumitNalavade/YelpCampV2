@@ -2,7 +2,7 @@ import React, { useCallback } from "react";
 import { useDropzone } from "react-dropzone";
 
 interface Props {
-  setFile: React.Dispatch<React.SetStateAction<File[] | undefined>>
+  setFile: React.Dispatch<React.SetStateAction<File[]>>
   multiple: boolean
   text: string
   uploadedFiles: File[] 
@@ -48,11 +48,9 @@ const Dropzone: React.FC<Props> = ({ setFile, multiple, text, uploadedFiles }) =
       </div>
     </div>
     <p className="my-4">
-    {uploadedFiles?.length! > 0 ? (
-      <p>{uploadedFiles![0].name}</p>
-    ) : (
-      ""
-    )}
+    { uploadedFiles.map((file, index) => (
+      <p key={index}>{file.name}</p>
+    )) }
   </p>
   </>
   )
