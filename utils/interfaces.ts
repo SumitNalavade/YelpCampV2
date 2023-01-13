@@ -14,7 +14,11 @@ export interface ICampground {
 }
 
 export interface IReview {
+  id: string
   rating: number
   body: string
   user: User
+  userId: string
+  campground: ICampground
+  campgroundId: string
 }

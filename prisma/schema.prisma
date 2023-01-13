@@ -64,7 +64,6 @@ model Campground {
     id                 String   @id @default(uuid())
     name               String
     description        String
-    averageRating      Float    @default(0)
     primaryImageB64    String
     secondaryImageB64s String[]
     address            String

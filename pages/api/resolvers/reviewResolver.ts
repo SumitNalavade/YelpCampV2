@@ -65,6 +65,15 @@ class ReviewResolver {
             }
         })
     }
+
+    @Mutation(() => Review)
+    async deleteReview(@Arg("id") id: string) {
+        return await prisma.review.delete({
+            where: {
+                id
+            }
+        })
+    }
 }
 
 export default ReviewResolver

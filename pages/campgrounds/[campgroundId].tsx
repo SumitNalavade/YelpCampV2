@@ -5,10 +5,12 @@ import { request, gql } from "graphql-request";
 
 import { ICampground } from "../../utils/interfaces";
 
+// @ts-ignore
+import StarRating from "react-star-ratings"
+
 import Layout from "../../Components/Layout";
 import CampgroundImage from "../../Components/CampgroundImage";
-import AverageCampgroundRating from "../../Components/AverageCampgroundRating";
-import CampgroundRating from "../../Components/CampgroundRating";
+import AddCampgroundRating from "../../Components/AddCampgroundRating";
 import ReviewCard from "../../Components/ReviewCard";
 
 import { deleteCampground } from "../../utils/controllers/campgroundController";
@@ -34,8 +36,13 @@ const CampgroundPage: NextPage<Props> = ({ campground }) => {
     router.push(`/campgrounds/${campgroundId}`)
   }
 
-  campground.reviews.map((review) => console.log(review.user.id))
-  console.log(session?.user.id)
+  const getAverageRating = () => {
+    if(campground.reviews.length == 0) return 0
+
+    const totalRating = campground.reviews.reduce((accr, curr) => accr + curr.rating, 0)
+
+    return totalRating / campground.reviews.length
+  }
 
   return (
     <Layout>
@@ -78,7 +85,13 @@ const CampgroundPage: NextPage<Props> = ({ campground }) => {
                     </span>
                     night
                   </h2>
-                  <AverageCampgroundRating rating={campground.averageRating} />
+                  <StarRating
+                    rating={getAverageRating()}
+                    starRatedColor="black"
+                    numberOfStars={5}
+                    name='rating'
+                    starDimension={"10px"}
+                  />
                 </div>
                 <div className="w-full flex justify-between items-center">
                   <p className="text-lg">Posted by {campground.user.name}</p>
@@ -90,16 +103,13 @@ const CampgroundPage: NextPage<Props> = ({ campground }) => {
                 </div>
 
                 {session && campground.user.id != session.user.id && !campground.reviews.find((review) => review.user.id === session?.user.id) ? (
-                  <CampgroundRating addReview={handleAddReview} />
+                  <AddCampgroundRating addReview={handleAddReview} />
                 ) : (
                   ""
                 )}
 
                 {session && campground.user.id === session.user.id ? (
-                  <div className="pt-6">
-                    <button className="btn btn-primary m-2 text-white">Update Campground</button>
-                    <button className="btn btn-secondary m-2 text-white" onClick={handleDeleteCampground}>Delete Campground</button>
-                  </div>
+                  <button className="btn btn-secondary btn-sm max-w-xs mt-6 text-white" onClick={handleDeleteCampground}>Delete Campground</button>
                 ) : (
                   ""
                 )}
@@ -132,9 +142,12 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
           image
         }
         reviews {
+          id
           rating
           body
+          campgroundId
           user {
+            id
             name
             image
           }

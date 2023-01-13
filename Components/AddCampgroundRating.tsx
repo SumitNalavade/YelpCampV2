@@ -7,7 +7,7 @@ interface Props {
   addReview: (rating: number, body: string) => void
 }
 
-const CampgroundRating: React.FC<Props> = ({ addReview }) => {
+const AddCampgroundRating: React.FC<Props> = ({ addReview }) => {
   const [rating, setRating] = useState(0)
   const [body, setBody] = useState("")
       
@@ -36,4 +36,4 @@ const CampgroundRating: React.FC<Props> = ({ addReview }) => {
   );
 };
 
-export default CampgroundRating
+export default AddCampgroundRating

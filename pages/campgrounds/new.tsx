@@ -1,16 +1,20 @@
 import React, { useState } from "react";
-import { NextPage } from "next";
+import { GetServerSideProps, NextPage } from "next";
 import { useRouter } from 'next/router'
-import { useSession } from "next-auth/react";
+import { Session } from "next-auth";
+import { getSession, useSession } from "next-auth/react";
 
 import Layout from "../../Components/Layout";
 import Dropzone from "../../Components/Dropzone";
 
 import { addCampground } from "../../utils/controllers/campgroundController";
 
-const NewCampground: NextPage = () => {
+interface Props {
+  session: Session
+}
+
+const NewCampground: NextPage<Props> = ({ session }) => {
   const router = useRouter()
-  const { data: session } = useSession()
 
   const [name, setName] = useState("");
   const [address, setAddress] = useState("");
@@ -111,6 +115,21 @@ const NewCampground: NextPage = () => {
       </div>
     </Layout>
   );
+};
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const session = await getSession(context);
+
+  if(!session) {
+    return {
+      redirect: {
+        destination: "/campgrounds",
+        permanent: false
+      }
+    }
+  }
+
+  return { props: { session } };
 };
 
 export default NewCampground;
