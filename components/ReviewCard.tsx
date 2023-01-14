@@ -3,6 +3,8 @@ import { useRouter } from "next/router";
 import { useQuery } from "react-query";
 import { useSession } from "next-auth/react";
 
+// @ts-ignore
+import StarRating from "react-star-ratings"
 import { FaTrash } from "react-icons/fa";
 import { ImSpinner8 } from "react-icons/im" 
 
@@ -32,6 +34,13 @@ const ReviewCard: React.FC<Props> = ({ review }) => {
         <div className="w-full col-span-11 flex items-center justify-between">
           <div>
             <p className="font-medium">{review.user!.name}</p>
+            <StarRating
+              rating={review.rating}
+              starRatedColor="black"
+              numberOfStars={5}
+              name='rating'
+              starDimension={"10px"}
+            />
             <p className="col-span-11">{review.body}</p>
           </div>
           { session ? isFetching ? <ImSpinner8 /> : session.user.id === review.userId ? <FaTrash onClick={() => refetch()} color="red" /> : "" : "" }
