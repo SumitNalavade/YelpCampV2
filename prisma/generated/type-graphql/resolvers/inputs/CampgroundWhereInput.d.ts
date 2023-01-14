@@ -10,7 +10,6 @@ export declare class CampgroundWhereInput {
     id?: StringFilter | undefined;
     name?: StringFilter | undefined;
     description?: StringFilter | undefined;
-    averageRating?: FloatFilter | undefined;
     primaryImageB64?: StringFilter | undefined;
     secondaryImageB64s?: StringNullableListFilter | undefined;
     address?: StringFilter | undefined;

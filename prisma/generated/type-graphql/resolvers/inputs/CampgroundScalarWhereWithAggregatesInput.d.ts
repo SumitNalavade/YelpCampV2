@@ -8,7 +8,6 @@ export declare class CampgroundScalarWhereWithAggregatesInput {
     id?: StringWithAggregatesFilter | undefined;
     name?: StringWithAggregatesFilter | undefined;
     description?: StringWithAggregatesFilter | undefined;
-    averageRating?: FloatWithAggregatesFilter | undefined;
     primaryImageB64?: StringWithAggregatesFilter | undefined;
     secondaryImageB64s?: StringNullableListFilter | undefined;
     address?: StringWithAggregatesFilter | undefined;

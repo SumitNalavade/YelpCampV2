@@ -131,7 +131,6 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
         id
         name
         description
-        averageRating
         primaryImageB64
         secondaryImageB64s
         address
@@ -157,7 +156,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   `;
 
   const campground = (
-    await request("http://localhost:3000/api/graphql", query, {
+    await request(`${process.env.NEXT_PUBLIC_URL}/api/graphql`, query, {
       id: campgroundId,
     })
   )["campground"];

@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { GetServerSideProps, NextPage } from "next";
 import { useRouter } from 'next/router'
-import { Session } from "next-auth";
 import { getSession, useSession } from "next-auth/react";
 
 import Layout from "../../Components/Layout";
@@ -9,11 +8,8 @@ import Dropzone from "../../Components/Dropzone";
 
 import { addCampground } from "../../utils/controllers/campgroundController";
 
-interface Props {
-  session: Session
-}
-
-const NewCampground: NextPage<Props> = ({ session }) => {
+const NewCampground: NextPage = () => {
+  const { data: session } = useSession()
   const router = useRouter()
 
   const [name, setName] = useState("");
@@ -22,6 +18,8 @@ const NewCampground: NextPage<Props> = ({ session }) => {
   const [description, setDescription] = useState("");
   const [primaryImages, setPrimaryImages] = useState<File[]>([]);
   const [secondaryImages, setSecondaryImages] = useState<File[]>([]);
+
+  console.log(session)
 
   const handleAddCampground = async () => {
     const { id } = await addCampground(name, description, primaryImages, secondaryImages, address, Number(price), session!.user.id!)

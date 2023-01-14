@@ -16,5 +16,6 @@ export default NextAuth({
           session.user.id = user.id;
           return Promise.resolve(session);
         },
-      }      
+    },
+    secret: process.env.NEXT_PUBLIC_AUTH_SECRET
 })

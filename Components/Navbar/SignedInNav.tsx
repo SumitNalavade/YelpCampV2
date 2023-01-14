@@ -27,7 +27,6 @@ const SignedInNav: React.FC<SignedInNavProps> = ({ user }) => {
                 <img src={user.image!} alt="" className="rounded-full w-full w-14" />
             </div>
             <p className="font-medium my-2">{user.name}</p>
-            <Link href={"/user/campgrounds"} className="btn btn-primary btn-sm w-full my-2 text-xs text-white">My Campgrounds</Link>
             <button className="btn btn-secondary btn-sm w-full my-2 text-xs text-white" onClick={() => signOut()}>Sign Out</button>
         </div>
 

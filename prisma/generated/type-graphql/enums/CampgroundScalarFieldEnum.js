@@ -8,7 +8,6 @@ var CampgroundScalarFieldEnum;
     CampgroundScalarFieldEnum["id"] = "id";
     CampgroundScalarFieldEnum["name"] = "name";
     CampgroundScalarFieldEnum["description"] = "description";
-    CampgroundScalarFieldEnum["averageRating"] = "averageRating";
     CampgroundScalarFieldEnum["primaryImageB64"] = "primaryImageB64";
     CampgroundScalarFieldEnum["secondaryImageB64s"] = "secondaryImageB64s";
     CampgroundScalarFieldEnum["address"] = "address";

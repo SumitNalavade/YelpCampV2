@@ -7,7 +7,6 @@ export declare class CampgroundGroupBy {
     id: string;
     name: string;
     description: string;
-    averageRating: number;
     primaryImageB64: string;
     secondaryImageB64s: string[] | null;
     address: string;

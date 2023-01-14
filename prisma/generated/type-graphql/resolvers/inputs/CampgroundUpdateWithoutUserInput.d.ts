@@ -6,7 +6,6 @@ export declare class CampgroundUpdateWithoutUserInput {
     id?: StringFieldUpdateOperationsInput | undefined;
     name?: StringFieldUpdateOperationsInput | undefined;
     description?: StringFieldUpdateOperationsInput | undefined;
-    averageRating?: FloatFieldUpdateOperationsInput | undefined;
     primaryImageB64?: StringFieldUpdateOperationsInput | undefined;
     secondaryImageB64s?: CampgroundUpdatesecondaryImageB64sInput | undefined;
     address?: StringFieldUpdateOperationsInput | undefined;

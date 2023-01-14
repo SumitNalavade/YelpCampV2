@@ -7,5 +7,5 @@ export declare class UserCampgroundsArgs {
     cursor?: CampgroundWhereUniqueInput | undefined;
     take?: number | undefined;
     skip?: number | undefined;
-    distinct?: Array<"id" | "name" | "description" | "averageRating" | "primaryImageB64" | "secondaryImageB64s" | "address" | "price" | "userId"> | undefined;
+    distinct?: Array<"id" | "name" | "description" | "primaryImageB64" | "secondaryImageB64s" | "address" | "price" | "userId"> | undefined;
 }

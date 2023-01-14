@@ -4,7 +4,6 @@ export declare class CampgroundCreateWithoutUserInput {
     id?: string | undefined;
     name: string;
     description: string;
-    averageRating?: number | undefined;
     primaryImageB64: string;
     secondaryImageB64s?: CampgroundCreatesecondaryImageB64sInput | undefined;
     address: string;
