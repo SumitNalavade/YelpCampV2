@@ -1,4 +1,5 @@
 import { NextPage, GetServerSideProps } from "next";
+import { useQuery } from "react-query";
 import { useRouter } from 'next/router'
 import { useSession } from "next-auth/react";
 import { request, gql } from "graphql-request";
@@ -10,7 +11,7 @@ import StarRating from "react-star-ratings"
 
 import Layout from "../../components/Layout";
 import CampgroundImage from "../../components/CampgroundImage";
-import AddCampgroundRating from "../../components/AddCampgroundRating";
+import AddCampgroundRating from "../../components/AddCampgroundReview";
 import ReviewCard from "../../components/ReviewCard";
 
 import { deleteCampground } from "../../utils/controllers/campgroundController";
@@ -24,11 +25,14 @@ const CampgroundPage: NextPage<Props> = ({ campground }) => {
   const router = useRouter();
   const { data: session } = useSession();
 
-  const handleDeleteCampground = async() => {
+  const { isFetching, refetch } = useQuery("deleteCampground", async () => {
     await deleteCampground(campground.id)
-
+    
     router.push(`/campgrounds`)
-  }
+  }, {
+    refetchOnWindowFocus: false,
+    enabled: false,
+  })
 
   const handleAddReview = async(rating: number, body: string) => {
     const { campgroundId } = await addReview(rating, body, session?.user.id!, campground.id)
@@ -109,7 +113,7 @@ const CampgroundPage: NextPage<Props> = ({ campground }) => {
                 )}
 
                 {session && campground.user.id === session.user.id ? (
-                  <button className="btn btn-secondary btn-sm max-w-xs mt-6 text-white" onClick={handleDeleteCampground}>Delete Campground</button>
+                  <button className={`btn btn-secondary btn-sm max-w-xs mt-6 text-white ${isFetching ? "disabled loading" : ""}`} onClick={() => refetch()}>Delete Campground</button>
                 ) : (
                   ""
                 )}

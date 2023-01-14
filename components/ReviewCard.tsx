@@ -1,8 +1,10 @@
 import React from "react";
 import { useRouter } from "next/router";
+import { useQuery } from "react-query";
 import { useSession } from "next-auth/react";
 
 import { FaTrash } from "react-icons/fa";
+import { ImSpinner8 } from "react-icons/im" 
 
 import { IReview } from "../utils/interfaces";
 import { deleteReview } from "../utils/controllers/reviewController";
@@ -15,11 +17,13 @@ const ReviewCard: React.FC<Props> = ({ review }) => {
   const router = useRouter()
   const { data: session } = useSession()
 
-  const handleDeleteReview = async() => {
+  const { isFetching, refetch } = useQuery("deleteReview", async () => {
     await deleteReview(review.id)
-
     router.push(`/campgrounds/${review.campgroundId}`)
-  }
+  },{
+    refetchOnWindowFocus: false,
+    enabled: false,
+  })
 
   return (
     <div className="card card-compact my-6 grid grid-cols-12 gap-4 items-center">
@@ -29,7 +33,7 @@ const ReviewCard: React.FC<Props> = ({ review }) => {
             <p className="font-medium">{review.user!.name}</p>
             <p className="col-span-11">{review.body}</p>
           </div>
-          { session ? <FaTrash onClick={handleDeleteReview} color="red" /> : "" }
+          { session ? isFetching ? <ImSpinner8 /> : <FaTrash onClick={() => refetch()} color="red" /> : "" }
         </div>
     </div>
   );

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { GetServerSideProps, NextPage } from "next";
+import { useQuery } from "react-query";
 import { useRouter } from 'next/router'
 import { getSession, useSession } from "next-auth/react";
 
@@ -19,13 +20,14 @@ const NewCampground: NextPage = () => {
   const [primaryImages, setPrimaryImages] = useState<File[]>([]);
   const [secondaryImages, setSecondaryImages] = useState<File[]>([]);
 
-  console.log(session)
-
-  const handleAddCampground = async () => {
+  const { isFetching, refetch } = useQuery("addCampground", async () => {
     const { id } = await addCampground(name, description, primaryImages, secondaryImages, address, Number(price), session!.user.id!)
 
-    router.push(`/campgrounds/${id}`)
-  };
+    router.push(`/campgrounds/${id}`) 
+  }, {
+    refetchOnWindowFocus: false,
+    enabled: false,
+  })
 
   return (
     <Layout>
@@ -107,7 +109,7 @@ const NewCampground: NextPage = () => {
             />
           </div>
           <div className="my-4 w-full max-w-lg">
-            <button className="btn btn-secondary" onClick={handleAddCampground}>Add Campground</button>
+            <button className={`btn btn-secondary text-white ${isFetching ? "loading disabled" : ""}`} onClick={() => refetch()}>Add Campground</button>
           </div>
         </div>
       </div>

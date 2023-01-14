@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useQuery } from "react-query";
 
 // @ts-ignore
 import StarRating from "react-star-ratings"
@@ -7,10 +8,15 @@ interface Props {
   addReview: (rating: number, body: string) => void
 }
 
-const AddCampgroundRating: React.FC<Props> = ({ addReview }) => {
+const AddCampgroundReview: React.FC<Props> = ({ addReview }) => {
   const [rating, setRating] = useState(0)
   const [body, setBody] = useState("")
-      
+
+  const { isFetching, refetch } = useQuery("addReview", () => addReview(rating, body), {
+    refetchOnWindowFocus: false,
+    enabled: false,
+  })
+
   return (
     <div className="pt-6">
       <StarRating
@@ -29,11 +35,11 @@ const AddCampgroundRating: React.FC<Props> = ({ addReview }) => {
         value={body}
         onChange={(evt) => setBody(evt.target.value)}
       ></textarea>
-      <button className="btn btn-primary text-white" onClick={() => addReview(rating, body)}>
+      <button className={`btn btn-primary text-white ${ isFetching ? "loading disabled" : "" }`} onClick={() => refetch()}>
         Post Review
       </button>
     </div>
   );
 };
 
-export default AddCampgroundRating
+export default AddCampgroundReview
