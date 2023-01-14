@@ -1,17 +1,17 @@
 import { NextPage, GetServerSideProps } from "next";
-import { useRouter } from 'next/router'
+import { useRouter } from "next/router";
 import { useSession } from "next-auth/react";
 import { request, gql } from "graphql-request";
 
 import { ICampground } from "../../utils/interfaces";
 
 // @ts-ignore
-import StarRating from "react-star-ratings"
+import StarRating from "react-star-ratings";
 
-import Layout from "../../Components/Layout";
-import CampgroundImage from "../../Components/CampgroundImage";
-import AddCampgroundRating from "../../Components/AddCampgroundRating";
-import ReviewCard from "../../Components/ReviewCard";
+import Layout from "../../components/Layout";
+import CampgroundImage from "../../components/CampgroundImage";
+import AddCampgroundRating from "../../components/AddCampgroundRating";
+import ReviewCard from "../../components/ReviewCard";
 
 import { deleteCampground } from "../../utils/controllers/campgroundController";
 import { addReview } from "../../utils/controllers/reviewController";
@@ -24,25 +24,33 @@ const CampgroundPage: NextPage<Props> = ({ campground }) => {
   const router = useRouter();
   const { data: session } = useSession();
 
-  const handleDeleteCampground = async() => {
-    await deleteCampground(campground.id)
+  const handleDeleteCampground = async () => {
+    await deleteCampground(campground.id);
 
-    router.push(`/campgrounds`)
-  }
+    router.push(`/campgrounds`);
+  };
 
-  const handleAddReview = async(rating: number, body: string) => {
-    const { campgroundId } = await addReview(rating, body, session?.user.id!, campground.id)
+  const handleAddReview = async (rating: number, body: string) => {
+    const { campgroundId } = await addReview(
+      rating,
+      body,
+      session?.user.id!,
+      campground.id
+    );
 
-    router.push(`/campgrounds/${campgroundId}`)
-  }
+    router.push(`/campgrounds/${campgroundId}`);
+  };
 
   const getAverageRating = () => {
-    if(campground.reviews.length == 0) return 0
+    if (campground.reviews.length == 0) return 0;
 
-    const totalRating = campground.reviews.reduce((accr, curr) => accr + curr.rating, 0)
+    const totalRating = campground.reviews.reduce(
+      (accr, curr) => accr + curr.rating,
+      0
+    );
 
-    return totalRating / campground.reviews.length
-  }
+    return totalRating / campground.reviews.length;
+  };
 
   return (
     <Layout>
@@ -89,7 +97,7 @@ const CampgroundPage: NextPage<Props> = ({ campground }) => {
                     rating={getAverageRating()}
                     starRatedColor="black"
                     numberOfStars={5}
-                    name='rating'
+                    name="rating"
                     starDimension={"10px"}
                   />
                 </div>
@@ -102,14 +110,23 @@ const CampgroundPage: NextPage<Props> = ({ campground }) => {
                   </div>
                 </div>
 
-                {session && campground.user.id != session.user.id && !campground.reviews.find((review) => review.user.id === session?.user.id) ? (
+                {session &&
+                campground.user.id != session.user.id &&
+                !campground.reviews.find(
+                  (review) => review.user.id === session?.user.id
+                ) ? (
                   <AddCampgroundRating addReview={handleAddReview} />
                 ) : (
                   ""
                 )}
 
                 {session && campground.user.id === session.user.id ? (
-                  <button className="btn btn-secondary btn-sm max-w-xs mt-6 text-white" onClick={handleDeleteCampground}>Delete Campground</button>
+                  <button
+                    className="btn btn-secondary btn-sm max-w-xs mt-6 text-white"
+                    onClick={handleDeleteCampground}
+                  >
+                    Delete Campground
+                  </button>
                 ) : (
                   ""
                 )}

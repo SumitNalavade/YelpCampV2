@@ -2,8 +2,8 @@ import { NextPage, GetServerSideProps } from "next";
 import Link from "next/link";
 import { request, gql } from "graphql-request";
 
-import Layout from "../Components/Layout";
-import CampgroundCard from "../Components/CampgroundCard";
+import Layout from "../components/Layout";
+import CampgroundCard from "../components/CampgroundCard";
 
 import { ICampground } from "../utils/interfaces";
 

@@ -1,16 +1,16 @@
 import React, { useState } from "react";
 import { GetServerSideProps, NextPage } from "next";
-import { useRouter } from 'next/router'
+import { useRouter } from "next/router";
 import { getSession, useSession } from "next-auth/react";
 
-import Layout from "../../Components/Layout";
-import Dropzone from "../../Components/Dropzone";
+import Layout from "../../components/Layout";
+import Dropzone from "../../components/Dropzone";
 
 import { addCampground } from "../../utils/controllers/campgroundController";
 
 const NewCampground: NextPage = () => {
-  const { data: session } = useSession()
-  const router = useRouter()
+  const { data: session } = useSession();
+  const router = useRouter();
 
   const [name, setName] = useState("");
   const [address, setAddress] = useState("");
@@ -19,20 +19,30 @@ const NewCampground: NextPage = () => {
   const [primaryImages, setPrimaryImages] = useState<File[]>([]);
   const [secondaryImages, setSecondaryImages] = useState<File[]>([]);
 
-  console.log(session)
+  console.log(session);
 
   const handleAddCampground = async () => {
-    const { id } = await addCampground(name, description, primaryImages, secondaryImages, address, Number(price), session!.user.id!)
+    const { id } = await addCampground(
+      name,
+      description,
+      primaryImages,
+      secondaryImages,
+      address,
+      Number(price),
+      session!.user.id!
+    );
 
-    router.push(`/campgrounds/${id}`)
+    router.push(`/campgrounds/${id}`);
   };
 
   return (
     <Layout>
       <div className="mx-6 md:grid grid-cols-2 gap-10 h-full">
-      <div>
+        <div>
           <div className="mb-10 hidden md:block">
-            <p className="text-3xl font-medium">What does this location looks like?</p>
+            <p className="text-3xl font-medium">
+              What does this location looks like?
+            </p>
             <p>Upload a primary image and some supporting images</p>
           </div>
           <div className="mb-16 w-full">
@@ -53,8 +63,7 @@ const NewCampground: NextPage = () => {
           </div>
         </div>
 
-
-      <div className="flex flex-col items-center">
+        <div className="flex flex-col items-center">
           <div className="mb-10 w-full max-w-lg hidden md:block">
             <p className="text-3xl font-medium">Basic Information</p>
             <p>Give up some basic info about this information</p>
@@ -107,7 +116,9 @@ const NewCampground: NextPage = () => {
             />
           </div>
           <div className="my-4 w-full max-w-lg">
-            <button className="btn btn-secondary" onClick={handleAddCampground}>Add Campground</button>
+            <button className="btn btn-secondary" onClick={handleAddCampground}>
+              Add Campground
+            </button>
           </div>
         </div>
       </div>
@@ -118,13 +129,13 @@ const NewCampground: NextPage = () => {
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const session = await getSession(context);
 
-  if(!session) {
+  if (!session) {
     return {
       redirect: {
         destination: "/campgrounds",
-        permanent: false
-      }
-    }
+        permanent: false,
+      },
+    };
   }
 
   return { props: { session } };
