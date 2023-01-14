@@ -32,6 +32,7 @@ const CampgroundPage: NextPage<Props> = ({ campground }) => {
   }, {
     refetchOnWindowFocus: false,
     enabled: false,
+    retry: false
   })
 
   const handleAddReview = async(rating: number, body: string) => {
@@ -106,7 +107,7 @@ const CampgroundPage: NextPage<Props> = ({ campground }) => {
                   </div>
                 </div>
 
-                {session && campground.user.id != session.user.id && !campground.reviews.find((review) => review.user.id === session?.user.id) ? (
+                {session && campground.user.id != session.user.id && !campground.reviews.find((review) => review.userId === session?.user.id) ? (
                   <AddCampgroundRating addReview={handleAddReview} />
                 ) : (
                   ""
@@ -149,8 +150,8 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
           rating
           body
           campgroundId
+          userId
           user {
-            id
             name
             image
           }

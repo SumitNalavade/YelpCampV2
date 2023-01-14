@@ -23,6 +23,7 @@ const ReviewCard: React.FC<Props> = ({ review }) => {
   },{
     refetchOnWindowFocus: false,
     enabled: false,
+    retry: false
   })
 
   return (
@@ -33,7 +34,7 @@ const ReviewCard: React.FC<Props> = ({ review }) => {
             <p className="font-medium">{review.user!.name}</p>
             <p className="col-span-11">{review.body}</p>
           </div>
-          { session ? isFetching ? <ImSpinner8 /> : <FaTrash onClick={() => refetch()} color="red" /> : "" }
+          { session ? isFetching ? <ImSpinner8 /> : session.user.id === review.userId ? <FaTrash onClick={() => refetch()} color="red" /> : "" : "" }
         </div>
     </div>
   );

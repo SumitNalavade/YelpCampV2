@@ -15,6 +15,7 @@ const AddCampgroundReview: React.FC<Props> = ({ addReview }) => {
   const { isFetching, refetch } = useQuery("addReview", () => addReview(rating, body), {
     refetchOnWindowFocus: false,
     enabled: false,
+    retry: false
   })
 
   return (

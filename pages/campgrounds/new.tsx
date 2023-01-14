@@ -27,6 +27,7 @@ const NewCampground: NextPage = () => {
   }, {
     refetchOnWindowFocus: false,
     enabled: false,
+    retry: false
   })
 
   return (
