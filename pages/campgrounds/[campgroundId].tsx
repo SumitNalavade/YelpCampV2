@@ -99,7 +99,7 @@ const CampgroundPage: NextPage<Props> = ({ campground }) => {
                   />
                 </div>
                 <div className="w-full flex justify-between items-center">
-                  <p className="text-lg">Posted by {campground.user.name}</p>
+                  <p className="flex text-lg flex-wrap break-words">Posted by {campground.user.name}</p>
                   <div className="avatar">
                     <div className="w-8 rounded-full">
                       <img src={campground.user.image!} />

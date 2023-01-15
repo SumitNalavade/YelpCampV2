@@ -20,7 +20,7 @@ export const campgroundFormSchema = z.object({
   address: z.string(),
   price: z.number(),
   description: z.string().max(500),
-  primaryImage: z.array(z.any()).length(1),
+  primaryImages: z.array(z.any()).length(1),
   secondaryImages: z.array(z.any()),
   userId: z.string()
 })
