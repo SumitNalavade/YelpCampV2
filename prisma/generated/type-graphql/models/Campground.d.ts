@@ -12,5 +12,6 @@ export declare class Campground {
     user?: User;
     userId: string;
     Review?: Review[];
+    createdAt: Date;
     _count?: CampgroundCount | null;
 }

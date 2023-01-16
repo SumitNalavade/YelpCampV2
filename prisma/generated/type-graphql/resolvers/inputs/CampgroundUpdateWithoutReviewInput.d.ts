@@ -1,4 +1,5 @@
 import { CampgroundUpdatesecondaryImageB64sInput } from "../inputs/CampgroundUpdatesecondaryImageB64sInput";
+import { DateTimeFieldUpdateOperationsInput } from "../inputs/DateTimeFieldUpdateOperationsInput";
 import { FloatFieldUpdateOperationsInput } from "../inputs/FloatFieldUpdateOperationsInput";
 import { StringFieldUpdateOperationsInput } from "../inputs/StringFieldUpdateOperationsInput";
 import { UserUpdateOneRequiredWithoutCampgroundsNestedInput } from "../inputs/UserUpdateOneRequiredWithoutCampgroundsNestedInput";
@@ -11,4 +12,5 @@ export declare class CampgroundUpdateWithoutReviewInput {
     address?: StringFieldUpdateOperationsInput | undefined;
     price?: FloatFieldUpdateOperationsInput | undefined;
     user?: UserUpdateOneRequiredWithoutCampgroundsNestedInput | undefined;
+    createdAt?: DateTimeFieldUpdateOperationsInput | undefined;
 }

@@ -7,4 +7,5 @@ export declare class CampgroundCountOrderByAggregateInput {
     address?: "asc" | "desc" | undefined;
     price?: "asc" | "desc" | undefined;
     userId?: "asc" | "desc" | undefined;
+    createdAt?: "asc" | "desc" | undefined;
 }

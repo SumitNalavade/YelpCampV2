@@ -6,4 +6,5 @@ export declare class CampgroundMaxOrderByAggregateInput {
     address?: "asc" | "desc" | undefined;
     price?: "asc" | "desc" | undefined;
     userId?: "asc" | "desc" | undefined;
+    createdAt?: "asc" | "desc" | undefined;
 }

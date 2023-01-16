@@ -3,5 +3,6 @@ export declare enum ReviewScalarFieldEnum {
     rating = "rating",
     body = "body",
     userId = "userId",
-    campgroundId = "campgroundId"
+    campgroundId = "campgroundId",
+    createdAt = "createdAt"
 }

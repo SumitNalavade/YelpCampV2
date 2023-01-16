@@ -4,5 +4,6 @@ export declare class ReviewCountAggregate {
     body: number;
     userId: number;
     campgroundId: number;
+    createdAt: number;
     _all: number;
 }

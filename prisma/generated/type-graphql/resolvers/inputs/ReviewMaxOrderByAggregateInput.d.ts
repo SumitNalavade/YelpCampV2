@@ -4,4 +4,5 @@ export declare class ReviewMaxOrderByAggregateInput {
     body?: "asc" | "desc" | undefined;
     userId?: "asc" | "desc" | undefined;
     campgroundId?: "asc" | "desc" | undefined;
+    createdAt?: "asc" | "desc" | undefined;
 }

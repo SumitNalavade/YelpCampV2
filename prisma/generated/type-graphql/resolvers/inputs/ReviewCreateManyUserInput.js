@@ -29,6 +29,12 @@ tslib_1.__decorate([
     }),
     tslib_1.__metadata("design:type", String)
 ], ReviewCreateManyUserInput.prototype, "campgroundId", void 0);
+tslib_1.__decorate([
+    TypeGraphQL.Field(_type => Date, {
+        nullable: true
+    }),
+    tslib_1.__metadata("design:type", Date)
+], ReviewCreateManyUserInput.prototype, "createdAt", void 0);
 ReviewCreateManyUserInput = tslib_1.__decorate([
     TypeGraphQL.InputType("ReviewCreateManyUserInput", {
         isAbstract: true

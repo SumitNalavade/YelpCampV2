@@ -35,6 +35,12 @@ tslib_1.__decorate([
     }),
     tslib_1.__metadata("design:type", String)
 ], ReviewMinAggregate.prototype, "campgroundId", void 0);
+tslib_1.__decorate([
+    TypeGraphQL.Field(_type => Date, {
+        nullable: true
+    }),
+    tslib_1.__metadata("design:type", Date)
+], ReviewMinAggregate.prototype, "createdAt", void 0);
 ReviewMinAggregate = tslib_1.__decorate([
     TypeGraphQL.ObjectType("ReviewMinAggregate", {
         isAbstract: true

@@ -1,27 +1,46 @@
+import React, { useState } from "react";
 import { NextPage, GetServerSideProps } from "next";
 import Link from "next/link";
 import { request, gql } from "graphql-request";
 
+import InfiniteScroll from "react-infinite-scroll-component";
 import Layout from "../components/Layout";
 import CampgroundCard from "../components/CampgroundCard";
 
 import { ICampground } from "../utils/interfaces";
+import { getCampgrounds } from "../utils/controllers/campgroundController";
 
 interface Props {
   campgrounds: ICampground[];
 }
 
-const Campgrounds: NextPage<Props> = ({ campgrounds }) => {
+const Campgrounds: NextPage<Props> = ({ campgrounds: initialCampgrounds }) => {
+  const [campgrounds, setCampgroundsState] = useState(initialCampgrounds)
+  const [cursor, setCursor] = useState(campgrounds[campgrounds.length - 1].id);
+
+  const getPaginatedCampgrounds = async () => {
+    const campgrounds = await getCampgrounds(cursor)
+
+    setCampgroundsState([...campgrounds, ...campgrounds])
+    setCursor(campgrounds[campgrounds.length - 1].id)
+  };
+
   return (
     <Layout>
-      <div className="container mx-auto">
-        <div className="flex flex-wrap justify-around">
-          {campgrounds.map((campground) => (
+      <div className="container mx-auto">     
+          <InfiniteScroll
+            dataLength={campgrounds.length}
+            next={getPaginatedCampgrounds}
+            hasMore={true}
+            loader={<h4></h4>}
+            className="flex flex-wrap"
+          >
+            {campgrounds.map((campground) => (
             <Link key={campground.id} href={`/campgrounds/${campground.id}`}>
               <CampgroundCard campground={campground} />
             </Link>
           ))}
-        </div>
+          </InfiniteScroll>
       </div>
     </Layout>
   );

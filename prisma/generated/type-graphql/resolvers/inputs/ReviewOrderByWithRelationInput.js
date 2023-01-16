@@ -50,6 +50,12 @@ tslib_1.__decorate([
     }),
     tslib_1.__metadata("design:type", String)
 ], ReviewOrderByWithRelationInput.prototype, "campgroundId", void 0);
+tslib_1.__decorate([
+    TypeGraphQL.Field(_type => SortOrder_1.SortOrder, {
+        nullable: true
+    }),
+    tslib_1.__metadata("design:type", String)
+], ReviewOrderByWithRelationInput.prototype, "createdAt", void 0);
 ReviewOrderByWithRelationInput = tslib_1.__decorate([
     TypeGraphQL.InputType("ReviewOrderByWithRelationInput", {
         isAbstract: true

@@ -1,3 +1,4 @@
+import { DateTimeWithAggregatesFilter } from "../inputs/DateTimeWithAggregatesFilter";
 import { FloatWithAggregatesFilter } from "../inputs/FloatWithAggregatesFilter";
 import { StringNullableListFilter } from "../inputs/StringNullableListFilter";
 import { StringWithAggregatesFilter } from "../inputs/StringWithAggregatesFilter";
@@ -13,4 +14,5 @@ export declare class CampgroundScalarWhereWithAggregatesInput {
     address?: StringWithAggregatesFilter | undefined;
     price?: FloatWithAggregatesFilter | undefined;
     userId?: StringWithAggregatesFilter | undefined;
+    createdAt?: DateTimeWithAggregatesFilter | undefined;
 }

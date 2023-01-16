@@ -30,6 +30,12 @@ tslib_1.__decorate([
     }),
     tslib_1.__metadata("design:type", CampgroundCreateNestedOneWithoutReviewInput_1.CampgroundCreateNestedOneWithoutReviewInput)
 ], ReviewCreateWithoutUserInput.prototype, "campground", void 0);
+tslib_1.__decorate([
+    TypeGraphQL.Field(_type => Date, {
+        nullable: true
+    }),
+    tslib_1.__metadata("design:type", Date)
+], ReviewCreateWithoutUserInput.prototype, "createdAt", void 0);
 ReviewCreateWithoutUserInput = tslib_1.__decorate([
     TypeGraphQL.InputType("ReviewCreateWithoutUserInput", {
         isAbstract: true

@@ -1,3 +1,4 @@
+import { DateTimeFilter } from "../inputs/DateTimeFilter";
 import { FloatFilter } from "../inputs/FloatFilter";
 import { StringFilter } from "../inputs/StringFilter";
 import { StringNullableListFilter } from "../inputs/StringNullableListFilter";
@@ -13,4 +14,5 @@ export declare class CampgroundScalarWhereInput {
     address?: StringFilter | undefined;
     price?: FloatFilter | undefined;
     userId?: StringFilter | undefined;
+    createdAt?: DateTimeFilter | undefined;
 }

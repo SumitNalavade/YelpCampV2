@@ -1,3 +1,4 @@
+import { DateTimeFilter } from "../inputs/DateTimeFilter";
 import { IntFilter } from "../inputs/IntFilter";
 import { StringFilter } from "../inputs/StringFilter";
 export declare class ReviewScalarWhereInput {
@@ -9,4 +10,5 @@ export declare class ReviewScalarWhereInput {
     body?: StringFilter | undefined;
     userId?: StringFilter | undefined;
     campgroundId?: StringFilter | undefined;
+    createdAt?: DateTimeFilter | undefined;
 }

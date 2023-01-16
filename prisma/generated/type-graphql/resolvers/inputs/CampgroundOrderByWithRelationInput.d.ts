@@ -11,4 +11,5 @@ export declare class CampgroundOrderByWithRelationInput {
     user?: UserOrderByWithRelationInput | undefined;
     userId?: "asc" | "desc" | undefined;
     Review?: ReviewOrderByRelationAggregateInput | undefined;
+    createdAt?: "asc" | "desc" | undefined;
 }

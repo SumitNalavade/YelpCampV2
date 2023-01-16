@@ -8,4 +8,5 @@ export declare class CampgroundCreateManyInput {
     address: string;
     price: number;
     userId: string;
+    createdAt?: Date | undefined;
 }

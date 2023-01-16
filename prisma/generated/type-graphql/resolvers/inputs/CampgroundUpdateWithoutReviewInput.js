@@ -4,6 +4,7 @@ exports.CampgroundUpdateWithoutReviewInput = void 0;
 const tslib_1 = require("tslib");
 const TypeGraphQL = tslib_1.__importStar(require("type-graphql"));
 const CampgroundUpdatesecondaryImageB64sInput_1 = require("../inputs/CampgroundUpdatesecondaryImageB64sInput");
+const DateTimeFieldUpdateOperationsInput_1 = require("../inputs/DateTimeFieldUpdateOperationsInput");
 const FloatFieldUpdateOperationsInput_1 = require("../inputs/FloatFieldUpdateOperationsInput");
 const StringFieldUpdateOperationsInput_1 = require("../inputs/StringFieldUpdateOperationsInput");
 const UserUpdateOneRequiredWithoutCampgroundsNestedInput_1 = require("../inputs/UserUpdateOneRequiredWithoutCampgroundsNestedInput");
@@ -57,6 +58,12 @@ tslib_1.__decorate([
     }),
     tslib_1.__metadata("design:type", UserUpdateOneRequiredWithoutCampgroundsNestedInput_1.UserUpdateOneRequiredWithoutCampgroundsNestedInput)
 ], CampgroundUpdateWithoutReviewInput.prototype, "user", void 0);
+tslib_1.__decorate([
+    TypeGraphQL.Field(_type => DateTimeFieldUpdateOperationsInput_1.DateTimeFieldUpdateOperationsInput, {
+        nullable: true
+    }),
+    tslib_1.__metadata("design:type", DateTimeFieldUpdateOperationsInput_1.DateTimeFieldUpdateOperationsInput)
+], CampgroundUpdateWithoutReviewInput.prototype, "createdAt", void 0);
 CampgroundUpdateWithoutReviewInput = tslib_1.__decorate([
     TypeGraphQL.InputType("CampgroundUpdateWithoutReviewInput", {
         isAbstract: true

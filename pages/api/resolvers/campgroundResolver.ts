@@ -30,9 +30,19 @@ class AddCampgroundInput implements Partial<Campground> {
 @Resolver(Campground)
 class CampgroundResolver {
     @Query(() => [Campground])
-    async campgrounds() {
-        return await prisma.campground.findMany()
+    async campgrounds(@Arg("limit", { defaultValue: 10 }) limit: number, @Arg("cursor", { defaultValue: "" }) cursor: string) {        
+        return await prisma.campground.findMany({
+            take: limit,
+            skip: cursor ? 1 : 0,
+            cursor: {
+                id: cursor || await prisma.campground.findFirst()!.then((campground) => campground?.id)
+            },
+            orderBy: {
+                createdAt: "asc"
+            }
+        })
     }
+
 
     @Query(() => Campground)
     async campground(@Arg("id") id: string) {

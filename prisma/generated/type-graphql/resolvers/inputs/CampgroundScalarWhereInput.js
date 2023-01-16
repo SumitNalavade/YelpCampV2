@@ -4,6 +4,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.CampgroundScalarWhereInput = void 0;
 const tslib_1 = require("tslib");
 const TypeGraphQL = tslib_1.__importStar(require("type-graphql"));
+const DateTimeFilter_1 = require("../inputs/DateTimeFilter");
 const FloatFilter_1 = require("../inputs/FloatFilter");
 const StringFilter_1 = require("../inputs/StringFilter");
 const StringNullableListFilter_1 = require("../inputs/StringNullableListFilter");
@@ -75,6 +76,12 @@ tslib_1.__decorate([
     }),
     tslib_1.__metadata("design:type", StringFilter_1.StringFilter)
 ], CampgroundScalarWhereInput.prototype, "userId", void 0);
+tslib_1.__decorate([
+    TypeGraphQL.Field(_type => DateTimeFilter_1.DateTimeFilter, {
+        nullable: true
+    }),
+    tslib_1.__metadata("design:type", DateTimeFilter_1.DateTimeFilter)
+], CampgroundScalarWhereInput.prototype, "createdAt", void 0);
 CampgroundScalarWhereInput = CampgroundScalarWhereInput_1 = tslib_1.__decorate([
     TypeGraphQL.InputType("CampgroundScalarWhereInput", {
         isAbstract: true

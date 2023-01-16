@@ -4,4 +4,5 @@ export declare class ReviewCreateWithoutCampgroundInput {
     rating: number;
     body: string;
     user: UserCreateNestedOneWithoutReviewInput;
+    createdAt?: Date | undefined;
 }

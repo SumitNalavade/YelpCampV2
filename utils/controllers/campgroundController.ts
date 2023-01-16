@@ -4,6 +4,26 @@ import toBase64 from "../FileToBase64"
 
 import { campgroundFormSchema } from "../../utils/interfaces";
 
+export const getCampgrounds = async(cursor: string) => {
+  const { campgrounds } = await request(
+      `${process.env.NEXT_PUBLIC_URL}/api/graphql`,
+      gql`
+        query campgrounds($cursor: String!) {
+          campgrounds(cursor: $cursor) {
+            id
+            name
+            primaryImageB64
+            address
+            price
+          }
+        }
+      `,
+      { cursor }
+    )
+
+  return campgrounds
+}
+
 export const deleteCampground = async(id: string) => {
   await request(`${process.env.NEXT_PUBLIC_URL}/api/graphql`,  gql`
     mutation deleteCampground($id: String!) {
@@ -15,7 +35,6 @@ export const deleteCampground = async(id: string) => {
   )}
 
 export const addCampground = async(name: string, description: string, primaryImages: File[], secondaryImages: File[], address: string, price: number, userId: string) => {
-
   try {
     campgroundFormSchema.parse({ name, description, primaryImages, secondaryImages, address, price, userId })
   } catch(error) {

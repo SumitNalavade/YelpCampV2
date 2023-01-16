@@ -8,4 +8,5 @@ export declare class ReviewOrderByWithRelationInput {
     userId?: "asc" | "desc" | undefined;
     campground?: CampgroundOrderByWithRelationInput | undefined;
     campgroundId?: "asc" | "desc" | undefined;
+    createdAt?: "asc" | "desc" | undefined;
 }

@@ -7,5 +7,5 @@ export declare class UserReviewArgs {
     cursor?: ReviewWhereUniqueInput | undefined;
     take?: number | undefined;
     skip?: number | undefined;
-    distinct?: Array<"id" | "rating" | "body" | "userId" | "campgroundId"> | undefined;
+    distinct?: Array<"id" | "rating" | "body" | "userId" | "campgroundId" | "createdAt"> | undefined;
 }

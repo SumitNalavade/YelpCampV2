@@ -71,6 +71,7 @@ model Campground {
     user               User     @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: Cascade)
     userId             String
     Review             Review[]
+    createdAt          DateTime @default(now())
 
     @@map("campgrounds")
 }
@@ -83,6 +84,7 @@ model Review {
     userId       String
     campground   Campground @relation(fields: [campgroundId], references: [id], onDelete: Cascade, onUpdate: Cascade)
     campgroundId String
+    createdAt    DateTime @default(now())
 
     @@map("users")
 }

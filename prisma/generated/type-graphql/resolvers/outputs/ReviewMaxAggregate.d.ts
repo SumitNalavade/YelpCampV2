@@ -4,4 +4,5 @@ export declare class ReviewMaxAggregate {
     body: string | null;
     userId: string | null;
     campgroundId: string | null;
+    createdAt: Date | null;
 }

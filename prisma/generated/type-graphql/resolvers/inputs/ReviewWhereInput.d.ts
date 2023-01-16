@@ -1,4 +1,5 @@
 import { CampgroundRelationFilter } from "../inputs/CampgroundRelationFilter";
+import { DateTimeFilter } from "../inputs/DateTimeFilter";
 import { IntFilter } from "../inputs/IntFilter";
 import { StringFilter } from "../inputs/StringFilter";
 import { UserRelationFilter } from "../inputs/UserRelationFilter";
@@ -13,4 +14,5 @@ export declare class ReviewWhereInput {
     userId?: StringFilter | undefined;
     campground?: CampgroundRelationFilter | undefined;
     campgroundId?: StringFilter | undefined;
+    createdAt?: DateTimeFilter | undefined;
 }

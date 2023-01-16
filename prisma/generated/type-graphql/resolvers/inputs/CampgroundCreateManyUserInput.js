@@ -48,6 +48,12 @@ tslib_1.__decorate([
     }),
     tslib_1.__metadata("design:type", Number)
 ], CampgroundCreateManyUserInput.prototype, "price", void 0);
+tslib_1.__decorate([
+    TypeGraphQL.Field(_type => Date, {
+        nullable: true
+    }),
+    tslib_1.__metadata("design:type", Date)
+], CampgroundCreateManyUserInput.prototype, "createdAt", void 0);
 CampgroundCreateManyUserInput = tslib_1.__decorate([
     TypeGraphQL.InputType("CampgroundCreateManyUserInput", {
         isAbstract: true

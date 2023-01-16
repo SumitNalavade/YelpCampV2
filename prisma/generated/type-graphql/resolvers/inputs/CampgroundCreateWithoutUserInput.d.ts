@@ -9,4 +9,5 @@ export declare class CampgroundCreateWithoutUserInput {
     address: string;
     price: number;
     Review?: ReviewCreateNestedManyWithoutCampgroundInput | undefined;
+    createdAt?: Date | undefined;
 }

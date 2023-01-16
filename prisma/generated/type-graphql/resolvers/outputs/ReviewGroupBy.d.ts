@@ -9,6 +9,7 @@ export declare class ReviewGroupBy {
     body: string;
     userId: string;
     campgroundId: string;
+    createdAt: Date;
     _count: ReviewCountAggregate | null;
     _avg: ReviewAvgAggregate | null;
     _sum: ReviewSumAggregate | null;

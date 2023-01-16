@@ -12,6 +12,7 @@ export declare class CampgroundGroupBy {
     address: string;
     price: number;
     userId: string;
+    createdAt: Date;
     _count: CampgroundCountAggregate | null;
     _avg: CampgroundAvgAggregate | null;
     _sum: CampgroundSumAggregate | null;

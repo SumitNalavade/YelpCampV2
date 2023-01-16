@@ -9,6 +9,7 @@ export declare class ReviewOrderByWithAggregationInput {
     body?: "asc" | "desc" | undefined;
     userId?: "asc" | "desc" | undefined;
     campgroundId?: "asc" | "desc" | undefined;
+    createdAt?: "asc" | "desc" | undefined;
     _count?: ReviewCountOrderByAggregateInput | undefined;
     _avg?: ReviewAvgOrderByAggregateInput | undefined;
     _max?: ReviewMaxOrderByAggregateInput | undefined;

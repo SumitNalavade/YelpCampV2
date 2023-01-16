@@ -7,5 +7,6 @@ export declare class CampgroundCountAggregate {
     address: number;
     price: number;
     userId: number;
+    createdAt: number;
     _all: number;
 }

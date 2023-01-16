@@ -35,6 +35,12 @@ tslib_1.__decorate([
     }),
     tslib_1.__metadata("design:type", String)
 ], ReviewMaxAggregate.prototype, "campgroundId", void 0);
+tslib_1.__decorate([
+    TypeGraphQL.Field(_type => Date, {
+        nullable: true
+    }),
+    tslib_1.__metadata("design:type", Date)
+], ReviewMaxAggregate.prototype, "createdAt", void 0);
 ReviewMaxAggregate = tslib_1.__decorate([
     TypeGraphQL.ObjectType("ReviewMaxAggregate", {
         isAbstract: true

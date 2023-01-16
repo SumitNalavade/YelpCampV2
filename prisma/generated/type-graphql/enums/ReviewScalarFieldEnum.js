@@ -10,6 +10,7 @@ var ReviewScalarFieldEnum;
     ReviewScalarFieldEnum["body"] = "body";
     ReviewScalarFieldEnum["userId"] = "userId";
     ReviewScalarFieldEnum["campgroundId"] = "campgroundId";
+    ReviewScalarFieldEnum["createdAt"] = "createdAt";
 })(ReviewScalarFieldEnum = exports.ReviewScalarFieldEnum || (exports.ReviewScalarFieldEnum = {}));
 TypeGraphQL.registerEnumType(ReviewScalarFieldEnum, {
     name: "ReviewScalarFieldEnum",

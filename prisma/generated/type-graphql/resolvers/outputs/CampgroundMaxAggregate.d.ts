@@ -6,4 +6,5 @@ export declare class CampgroundMaxAggregate {
     address: string | null;
     price: number | null;
     userId: string | null;
+    createdAt: Date | null;
 }

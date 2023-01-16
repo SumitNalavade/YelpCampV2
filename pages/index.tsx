@@ -24,7 +24,7 @@ const Home: NextPage = () => {
                 <p>Jump right in and explore our many campgrounds!</p>
               </div>
               <Link href="/campgrounds">
-                <button className="btn btn-primary">Get Started</button>
+                <button className="btn btn-primary text-white">Get Started</button>
               </Link>
             </div>
           </div>

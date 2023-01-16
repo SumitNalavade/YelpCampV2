@@ -3,4 +3,5 @@ export declare class ReviewCreateManyUserInput {
     rating: number;
     body: string;
     campgroundId: string;
+    createdAt?: Date | undefined;
 }

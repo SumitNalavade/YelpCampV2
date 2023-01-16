@@ -4,6 +4,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.CampgroundWhereInput = void 0;
 const tslib_1 = require("tslib");
 const TypeGraphQL = tslib_1.__importStar(require("type-graphql"));
+const DateTimeFilter_1 = require("../inputs/DateTimeFilter");
 const FloatFilter_1 = require("../inputs/FloatFilter");
 const ReviewListRelationFilter_1 = require("../inputs/ReviewListRelationFilter");
 const StringFilter_1 = require("../inputs/StringFilter");
@@ -89,6 +90,12 @@ tslib_1.__decorate([
     }),
     tslib_1.__metadata("design:type", ReviewListRelationFilter_1.ReviewListRelationFilter)
 ], CampgroundWhereInput.prototype, "Review", void 0);
+tslib_1.__decorate([
+    TypeGraphQL.Field(_type => DateTimeFilter_1.DateTimeFilter, {
+        nullable: true
+    }),
+    tslib_1.__metadata("design:type", DateTimeFilter_1.DateTimeFilter)
+], CampgroundWhereInput.prototype, "createdAt", void 0);
 CampgroundWhereInput = CampgroundWhereInput_1 = tslib_1.__decorate([
     TypeGraphQL.InputType("CampgroundWhereInput", {
         isAbstract: true

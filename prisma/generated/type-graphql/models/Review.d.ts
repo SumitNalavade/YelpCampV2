@@ -8,4 +8,5 @@ export declare class Review {
     userId: string;
     campground?: Campground;
     campgroundId: string;
+    createdAt: Date;
 }

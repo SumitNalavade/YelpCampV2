@@ -49,14 +49,26 @@ CREATE TABLE "campgrounds" (
     "id" TEXT NOT NULL,
     "name" TEXT NOT NULL,
     "description" TEXT NOT NULL,
-    "averageRating" DOUBLE PRECISION NOT NULL DEFAULT 0,
     "primaryImageB64" TEXT NOT NULL,
     "secondaryImageB64s" TEXT[],
     "address" TEXT NOT NULL,
     "price" DOUBLE PRECISION NOT NULL,
     "userId" TEXT NOT NULL,
+    "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
     CONSTRAINT "campgrounds_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateTable
+CREATE TABLE "users" (
+    "id" TEXT NOT NULL,
+    "rating" INTEGER NOT NULL,
+    "body" TEXT NOT NULL,
+    "userId" TEXT NOT NULL,
+    "campgroundId" TEXT NOT NULL,
+    "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+
+    CONSTRAINT "users_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateIndex
@@ -82,3 +94,9 @@ ALTER TABLE "Session" ADD CONSTRAINT "Session_userId_fkey" FOREIGN KEY ("userId"
 
 -- AddForeignKey
 ALTER TABLE "campgrounds" ADD CONSTRAINT "campgrounds_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "users" ADD CONSTRAINT "users_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "users" ADD CONSTRAINT "users_campgroundId_fkey" FOREIGN KEY ("campgroundId") REFERENCES "campgrounds"("id") ON DELETE CASCADE ON UPDATE CASCADE;

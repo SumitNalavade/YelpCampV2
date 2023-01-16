@@ -4,6 +4,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ReviewScalarWhereInput = void 0;
 const tslib_1 = require("tslib");
 const TypeGraphQL = tslib_1.__importStar(require("type-graphql"));
+const DateTimeFilter_1 = require("../inputs/DateTimeFilter");
 const IntFilter_1 = require("../inputs/IntFilter");
 const StringFilter_1 = require("../inputs/StringFilter");
 let ReviewScalarWhereInput = ReviewScalarWhereInput_1 = class ReviewScalarWhereInput {
@@ -56,6 +57,12 @@ tslib_1.__decorate([
     }),
     tslib_1.__metadata("design:type", StringFilter_1.StringFilter)
 ], ReviewScalarWhereInput.prototype, "campgroundId", void 0);
+tslib_1.__decorate([
+    TypeGraphQL.Field(_type => DateTimeFilter_1.DateTimeFilter, {
+        nullable: true
+    }),
+    tslib_1.__metadata("design:type", DateTimeFilter_1.DateTimeFilter)
+], ReviewScalarWhereInput.prototype, "createdAt", void 0);
 ReviewScalarWhereInput = ReviewScalarWhereInput_1 = tslib_1.__decorate([
     TypeGraphQL.InputType("ReviewScalarWhereInput", {
         isAbstract: true

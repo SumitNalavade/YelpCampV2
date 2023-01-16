@@ -1,4 +1,5 @@
 import { CampgroundUpdatesecondaryImageB64sInput } from "../inputs/CampgroundUpdatesecondaryImageB64sInput";
+import { DateTimeFieldUpdateOperationsInput } from "../inputs/DateTimeFieldUpdateOperationsInput";
 import { FloatFieldUpdateOperationsInput } from "../inputs/FloatFieldUpdateOperationsInput";
 import { StringFieldUpdateOperationsInput } from "../inputs/StringFieldUpdateOperationsInput";
 export declare class CampgroundUpdateManyMutationInput {
@@ -9,4 +10,5 @@ export declare class CampgroundUpdateManyMutationInput {
     secondaryImageB64s?: CampgroundUpdatesecondaryImageB64sInput | undefined;
     address?: StringFieldUpdateOperationsInput | undefined;
     price?: FloatFieldUpdateOperationsInput | undefined;
+    createdAt?: DateTimeFieldUpdateOperationsInput | undefined;
 }

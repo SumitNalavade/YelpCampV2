@@ -11,4 +11,5 @@ export declare class CampgroundCreateInput {
     price: number;
     user: UserCreateNestedOneWithoutCampgroundsInput;
     Review?: ReviewCreateNestedManyWithoutCampgroundInput | undefined;
+    createdAt?: Date | undefined;
 }

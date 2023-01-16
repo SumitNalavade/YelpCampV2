@@ -7,4 +7,5 @@ export declare class CampgroundCreateManyUserInput {
     secondaryImageB64s?: CampgroundCreatesecondaryImageB64sInput | undefined;
     address: string;
     price: number;
+    createdAt?: Date | undefined;
 }
