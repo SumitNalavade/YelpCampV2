@@ -14,28 +14,30 @@ interface Props {
   campgrounds: ICampground[];
 }
 
-const Campgrounds: NextPage<Props> = ({ campgrounds: initialCampgrounds }) => {
-  const [campgrounds, setCampgroundsState] = useState(initialCampgrounds)
-  const [cursor, setCursor] = useState(campgrounds[campgrounds.length - 1].id);
+const Campgrounds: NextPage<Props> = ({ campgrounds }) => {
+  const [campgroundsState, setCampgroundsState] = useState(campgrounds)
+  const [cursor, setCursor] = useState(campgroundsState[campgroundsState.length - 1].id);
 
   const getPaginatedCampgrounds = async () => {
     const campgrounds = await getCampgrounds(cursor)
 
-    setCampgroundsState([...campgrounds, ...campgrounds])
-    setCursor(campgrounds[campgrounds.length - 1].id)
+    if(campgrounds[0]) {
+      setCampgroundsState([...campgroundsState, ...campgrounds])
+      setCursor(campgrounds[campgrounds.length - 1].id)
+    }
   };
 
   return (
     <Layout>
       <div className="container mx-auto">     
           <InfiniteScroll
-            dataLength={campgrounds.length}
+            dataLength={campgroundsState.length}
             next={getPaginatedCampgrounds}
             hasMore={true}
             loader={<h4></h4>}
-            className="flex flex-wrap"
+            className="flex flex-wrap justify-center"
           >
-            {campgrounds.map((campground) => (
+            {campgroundsState.map((campground) => (
             <Link key={campground.id} href={`/campgrounds/${campground.id}`}>
               <CampgroundCard campground={campground} />
             </Link>
