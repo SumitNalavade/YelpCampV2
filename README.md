@@ -23,6 +23,6 @@ You will need to add the following environment variables to your .env.local file
 `NEXT_PUBLIC_URL`: Base applicaton URL  
 `NEXT_PUBLIC_GOOGLE_CLIENT_SECRET`: Google OAuth token secret key  
 `NEXT_PUBLIC_GOOGLE_CLIENT_ID`: Google OAuth token client ID  
-`NEXT_PUBLIC_GITHUB_ID`: Github OAuth token ID
+`NEXT_PUBLIC_GITHUB_ID`: Github OAuth token ID  
 `NEXT_PUBLIC_GITHUB_SECRET`: Github OAuth token secret
 
