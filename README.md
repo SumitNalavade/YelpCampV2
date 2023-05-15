@@ -18,7 +18,7 @@ Rewrite of the YelpCamp project from the 2022 web developer bootcamp
 You will need to add the following environment variables to your .env file  
 `DATABASE_URL`: PostgreSQL database URL  
 
-You will need to add the following environment variables to your .env.local file  
+You will need to add the following environment variables to your .env file  
 `NEXT_PUBLIC_AUTH_SECRET`: Randomly generated string  
 `NEXT_PUBLIC_URL`: Base applicaton URL  
 `NEXT_PUBLIC_GOOGLE_CLIENT_SECRET`: Google OAuth token secret key  
